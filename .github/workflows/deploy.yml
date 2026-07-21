@@ -52,7 +52,8 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          wranglerVersion: "4"
+          # Use repo-installed wrangler (avoids non-interactive npx prompt)
+          packageManager: npm
           command: pages deploy dist --project-name=koreanlife
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 
@@ -74,5 +75,5 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          wranglerVersion: "4"
+          packageManager: npm
           command: deploy --config worker/wrangler.jsonc
