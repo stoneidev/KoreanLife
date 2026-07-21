@@ -30,6 +30,10 @@ describe('pain-point coverage', () => {
     expect(guideIds.has('digital-life')).toBe(true)
   })
 
+  it('covers getting a phone number & passing identity verification', () => {
+    expect(guideIds.has('phone-verification')).toBe(true)
+  })
+
   it('covers gyopo identity as a reality check', () => {
     expect(realityIds.has('gyopo')).toBe(true)
   })

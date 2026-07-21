@@ -484,6 +484,60 @@ export const guides: Guide[] = [
       { en: 'Share verification codes with anyone', ko: '인증번호를 누구에게도 공유' },
     ],
   },
+  {
+    id: 'phone-verification',
+    code: '12',
+    icon: 'smartphone',
+    category: { en: 'Digital Life', ko: '디지털 생활' },
+    title: {
+      en: 'Get a number that passes 본인인증',
+      ko: '본인인증 되는 번호 만들기',
+    },
+    summary: {
+      en: 'Korean verification checks your name, not just an SMS — here’s what actually works',
+      ko: '본인인증은 문자가 아니라 명의를 확인합니다 — 실제로 되는 방법',
+    },
+    pain: {
+      en: 'The Baemin/bank ID-verification wall — the #1 shared foreigner pain. "Is there any temporary number?"',
+      ko: '배민·은행 본인인증 벽 — 외국인 공통 pain 1순위. "임시 번호는 없나요?"',
+    },
+    steps: [
+      {
+        en: 'Key fact: 본인인증 matches the name/birthdate/ARC registered to the SIM — it is not just receiving an SMS code',
+        ko: '핵심: 본인인증은 SIM에 등록된 이름·생년월일·외국인등록번호가 일치하는지를 봅니다. 단순 문자 수신이 아닙니다',
+      },
+      {
+        en: 'Passport prepaid SIM: short-term visitors can open a SIM in their own name with a passport — this passes verification on many services',
+        ko: '여권 선불 SIM: 단기 방문자도 여권으로 본인 명의 SIM 개통 가능 — 상당수 서비스의 본인인증 통과',
+      },
+      {
+        en: 'ARC postpaid: 90+ day residents get the most reliable path — works for banking and government services too',
+        ko: 'ARC 후불: 90일 이상 체류자는 가장 확실. 은행·정부 서비스까지 됩니다',
+      },
+      {
+        en: 'Data-only tourist SIMs and online virtual/rental numbers fail — no name is registered, so verification is rejected',
+        ko: '데이터 전용 관광 SIM과 온라인 가상·대여 번호는 실패 — 명의 등록이 없어 인증이 거부됩니다',
+      },
+      {
+        en: 'Policies vary by carrier/MVNO and change often — confirm current 본인인증 support before you pay',
+        ko: '통신사·알뜰폰마다 다르고 정책이 자주 바뀝니다 — 결제 전 현재 본인인증 지원 여부 확인',
+      },
+    ],
+    dos: [
+      { en: 'Open the SIM in your own name (passport or ARC)', ko: '본인 명의로 개통(여권 또는 ARC)' },
+      { en: 'Ask the seller directly if 본인인증 is supported', ko: '판매처에 본인인증 지원 여부를 직접 확인' },
+    ],
+    donts: [
+      {
+        en: 'Pay for "verification proxy" or virtual-number services — they break and risk fraud',
+        ko: '"인증 대행"·가상번호 서비스 결제 — 잘 안 되고 사기 위험',
+      },
+      {
+        en: 'Expect a data-only tourist SIM to unlock 본인인증',
+        ko: '데이터 전용 관광 SIM으로 본인인증이 될 거라 기대하기',
+      },
+    ],
+  },
 ]
 
 export function getGuideById(id: string) {
