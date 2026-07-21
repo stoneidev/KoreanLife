@@ -86,19 +86,30 @@ src/
 - `index.ts` — **public API.** 바깥에서는 이것만 import한다.
 - `*.test.ts(x)` — 대상 파일 옆에 배치(co-located).
 
-## `worker/` — 푸시 백엔드
+## `worker/` — 푸시·게시판 백엔드
 
 ```
 worker/
-├─ wrangler.jsonc            # 이름, compatibility_date, vars, KV 바인딩(SUBSCRIPTIONS)
-├─ tsconfig.json             # @cloudflare/workers-types
+├─ wrangler.jsonc            # Worker + KV(SUBSCRIPTIONS) + D1(BOARD)
+├─ migrations/0001_board.sql # posts / replies
+├─ tsconfig.json
 └─ src/
-   ├─ index.ts               # fetch 핸들러: /health, /api/push/{subscribe,test}
-   └─ lib.ts                 # 순수: validateSubscription, corsHeaders, subscriptionKey(해시)
+   ├─ index.ts               # Hono 앱 (CORS·Origin 게이트 + route mount)
+   ├─ env.ts                 # Bindings 타입
+   ├─ lib.ts                 # 순수: validateSubscription, CORS origin, subscriptionKey
+   ├─ push/send.ts           # Web Push 발송 (VAPID)
+   ├─ board/                 # validate, hash, rate-limit, repo
+   └─ routes/
+      ├─ health.ts           # GET /health
+      ├─ push.ts             # POST /api/push/{subscribe,test}
+      └─ board.ts            # GET/POST /api/board/posts…
 ```
 
-- secret `VAPID_JWK`(개인키 전체 JSON)는 저장소에 없다 — `wrangler secret`으로만 주입.
-- KV `SUBSCRIPTIONS`: 키는 endpoint의 SHA-256 해시, 값은 구독 JSON.
+- 라우팅: **Hono** (`hono` + `hono/cors`).
+- secret `VAPID_JWK`는 `wrangler secret`으로만 주입.
+- KV `SUBSCRIPTIONS`: 푸시 구독 + board rate limit 카운터.
+- D1 `BOARD`: 자체 게시판 posts/replies.
+- CORS: `ALLOWED_ORIGIN` + 로컬 Vite. `/api/*` Origin 불일치 시 403. `X-Device-Id` 허용.
 
 ## 명명·의존 규칙 (요약)
 

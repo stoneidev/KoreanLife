@@ -88,7 +88,7 @@ worker/       # Cloudflare Worker (푸시 백엔드) — 독립 배포 단위
 
 - **프론트**: `features/push-notify/` (config, `usePushNotify` 훅, `PushCard`, `lib/vapid.ts`).
 - **서비스워커**: `public/push-sw.js` (push/notificationclick) → `vite.config.ts`의 `workbox.importScripts`로 생성 SW에 주입.
-- **백엔드**: `worker/src/index.ts` (라우팅·KV), `worker/src/lib.ts` (검증·CORS, 순수).
+- **백엔드**: Hono 라우팅 — `worker/src/index.ts` + `routes/`, `lib.ts`(검증), `push/send.ts`(VAPID 발송).
 - **VAPID 키 주의 (중요)**: `webpush-webcrypto`의 `ApplicationServerKeys.fromJSON`은 **`{publicKey, privateKey}`** (base64url raw + pkcs8) 형식을 요구한다. 일반 EC JWK가 아니다. 로컬에서 `ApplicationServerKeys.generate().toJSON()`으로 생성한다(Node에선 `setWebCrypto(webcrypto)` 필요). 공개키는 `features/push-notify/config.ts`, 개인키 전체 JSON은 Worker secret `VAPID_JWK`.
 - **키 로테이션**: 공개키를 바꾸면 기존 구독은 무효. 클라이언트가 `subscriptionMatchesKey`로 mount·enable 시점에 감지해 재구독한다.
 - iOS는 "홈 화면에 추가"로 **설치 후에만** 푸시 가능(iOS 16.4+). Android/데스크톱 Chrome은 바로 됨.

@@ -95,7 +95,7 @@ app  →  pages  →  widgets  →  features  →  entities  →  shared
 `worker/`는 독립 배포 단위다.
 
 - **엔드포인트**: `/health`, `POST /api/push/subscribe`(KV 저장), `POST /api/push/test`(즉시 발송).
-- **순수 로직 분리**: `worker/src/lib.ts`(구독 검증, CORS, KV 키 해시) — 러너 없이 단위 테스트 가능. `worker/src/index.ts`는 라우팅·발송.
+- **Hono 라우팅**: `worker/src/index.ts`가 앱 셸, `routes/`에 엔드포인트. `lib.ts`는 순수 검증(단위 테스트), `push/send.ts`는 VAPID 발송.
 - **발송**: `webpush-webcrypto`로 실제 Web Push 요청 생성 후 브라우저 푸시 서버에 fetch.
 - **VAPID 키**: `{publicKey, privateKey}`(base64url raw + pkcs8) 형식. 공개키는 프론트 config, 개인키 전체 JSON은 Worker secret `VAPID_JWK`. 형식이 EC JWK가 아니라는 점에 주의(런타임 검증 있음).
 - **키 로테이션**: 공개키가 바뀌면 기존 구독 무효 → 클라이언트가 `subscriptionMatchesKey`로 감지해 재구독.

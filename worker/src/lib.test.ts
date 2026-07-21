@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { corsHeaders, validateSubscription } from './lib'
+import { isDevOrigin, resolveCorsOrigin, validateSubscription } from './lib'
 
 describe('validateSubscription', () => {
   const valid = {
@@ -39,14 +39,27 @@ describe('validateSubscription', () => {
   })
 })
 
-describe('corsHeaders', () => {
-  it('echoes the allowed origin', () => {
-    const h = corsHeaders('https://koreanlife.pages.dev')
-    expect(h['Access-Control-Allow-Origin']).toBe('https://koreanlife.pages.dev')
-    expect(h['Access-Control-Allow-Methods']).toContain('POST')
+describe('resolveCorsOrigin', () => {
+  it('echoes the allowed origin when request Origin matches', () => {
+    expect(
+      resolveCorsOrigin('https://koreanlife.pages.dev', 'https://koreanlife.pages.dev'),
+    ).toBe('https://koreanlife.pages.dev')
+  })
+
+  it('allows localhost Vite origins during development', () => {
+    expect(resolveCorsOrigin('http://localhost:5173', 'https://koreanlife.pages.dev')).toBe(
+      'http://localhost:5173',
+    )
+    expect(isDevOrigin('http://127.0.0.1:4173')).toBe(true)
+  })
+
+  it('falls back to configured origin when request Origin is missing', () => {
+    expect(resolveCorsOrigin(undefined, 'https://koreanlife.pages.dev')).toBe(
+      'https://koreanlife.pages.dev',
+    )
   })
 
   it('falls back to * when no origin configured', () => {
-    expect(corsHeaders(undefined)['Access-Control-Allow-Origin']).toBe('*')
+    expect(resolveCorsOrigin(undefined, undefined)).toBe('*')
   })
 })

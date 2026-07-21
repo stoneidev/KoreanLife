@@ -33,16 +33,6 @@ export function validateSubscription(input: unknown): Result<PushSubscriptionSha
   }
 }
 
-/** CORS headers scoped to the configured site origin (or * as a fallback). */
-export function corsHeaders(allowedOrigin: string | undefined): Record<string, string> {
-  return {
-    'Access-Control-Allow-Origin': allowedOrigin || '*',
-    'Access-Control-Allow-Methods': 'POST, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type',
-    'Access-Control-Max-Age': '86400',
-  }
-}
-
 /** Stable KV key for a subscription (hash of endpoint keeps keys bounded). */
 export async function subscriptionKey(endpoint: string): Promise<string> {
   const data = new TextEncoder().encode(endpoint)
@@ -51,4 +41,21 @@ export async function subscriptionKey(endpoint: string): Promise<string> {
   let hex = ''
   for (const b of bytes) hex += b.toString(16).padStart(2, '0')
   return `sub:${hex}`
+}
+
+/** Local Vite / preview origins used during development. */
+export function isDevOrigin(origin: string): boolean {
+  return /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin)
+}
+
+/** Resolve CORS allow-origin from env + request Origin. */
+export function resolveCorsOrigin(
+  requestOrigin: string | undefined,
+  allowedOrigin: string | undefined,
+): string {
+  const allowed = allowedOrigin || '*'
+  if (!requestOrigin) return allowed
+  if (allowed !== '*' && requestOrigin === allowed) return requestOrigin
+  if (isDevOrigin(requestOrigin)) return requestOrigin
+  return allowed
 }

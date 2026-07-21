@@ -1333,3 +1333,125 @@ button {
 .push-actions {
   margin-top: 14px;
 }
+
+/* ---------- board ---------- */
+.community-tabs {
+  margin-bottom: 14px;
+}
+
+.board-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.board-toolbar .mute {
+  flex: 1;
+  font-size: 12.5px;
+}
+
+.board-post-card {
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  background: var(--card, #fff);
+}
+
+.board-post-card .post-excerpt {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.board-back {
+  margin-bottom: 12px;
+}
+
+.board-form-title {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+.board-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--mute, #6b7588);
+}
+
+.board-field input,
+.board-field textarea {
+  font: inherit;
+  font-weight: 500;
+  color: var(--ink, #0b1220);
+  border: 1px solid var(--line, #c9d0db);
+  border-radius: var(--r-sm, 10px);
+  padding: 10px 12px;
+  background: #fff;
+  resize: vertical;
+}
+
+.board-detail-post h2 {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin: 6px 0 10px;
+}
+
+.board-detail-body {
+  font-size: 14.5px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+
+.board-replies {
+  margin-top: 22px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line, #c9d0db);
+}
+
+.board-replies h3 {
+  font-size: 15px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.board-reply-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.board-reply-list li {
+  padding: 12px;
+  border: 1px solid var(--line, #c9d0db);
+  border-radius: var(--r-md, 14px);
+  background: #fff;
+}
+
+.board-reply-list strong {
+  display: block;
+  font-size: 12.5px;
+  margin-bottom: 4px;
+}
+
+.board-reply-list p {
+  font-size: 13.5px;
+  line-height: 1.45;
+  white-space: pre-wrap;
+}
+
+.board-reply-form {
+  margin-top: 16px;
+}

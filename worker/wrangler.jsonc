@@ -2,9 +2,10 @@
   "$schema": "../node_modules/wrangler/config-schema.json",
   "name": "koreanlife-push",
   "main": "src/index.ts",
-  "compatibility_date": "2026-07-01",
+  "compatibility_date": "2026-07-21",
   "observability": {
-    "enabled": true
+    "enabled": true,
+    "head_sampling_rate": 1
   },
   "vars": {
     "VAPID_SUBJECT": "mailto:nijin39@gmail.com",
@@ -12,5 +13,13 @@
   },
   "kv_namespaces": [
     { "binding": "SUBSCRIPTIONS", "id": "075a0b583c9543be9f5caca2deae6d37" }
+  ],
+  "d1_databases": [
+    {
+      "binding": "BOARD",
+      "database_name": "koreanlife-board",
+      "database_id": "e1752f9f-7c59-42db-8f9b-049074e4289a",
+      "migrations_dir": "migrations"
+    }
   ]
 }
