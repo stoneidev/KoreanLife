@@ -1,9 +1,18 @@
 import { routes } from '@/shared/config/routes'
 
-export const navItems = [
-  { to: routes.home, labelKey: 'nav.home', icon: '🏠', end: true },
-  { to: routes.guides, labelKey: 'nav.guides', icon: '🧭' },
-  { to: routes.phrases, labelKey: 'nav.phrases', icon: '💬' },
-  { to: routes.reality, labelKey: 'nav.reality', icon: '🎬' },
-  { to: routes.safety, labelKey: 'nav.safety', icon: '🛡️' },
-] as const
+import type { IconName } from '@/shared/ui'
+
+type NavItem = {
+  to: string
+  labelKey: string
+  icon: IconName
+  end?: boolean
+}
+
+export const navItems: NavItem[] = [
+  { to: routes.home, labelKey: 'nav.home', icon: 'home', end: true },
+  { to: routes.guides, labelKey: 'nav.guides', icon: 'compass' },
+  { to: routes.phrases, labelKey: 'nav.phrases', icon: 'chat' },
+  { to: routes.reality, labelKey: 'nav.reality', icon: 'film' },
+  { to: routes.safety, labelKey: 'nav.safety', icon: 'shield' },
+]

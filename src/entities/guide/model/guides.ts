@@ -1,10 +1,11 @@
 import { DEFAULT_LANG } from '@/shared/i18n'
 import type { Lang, Localized } from '@/shared/i18n'
+import type { IconName } from '@/shared/ui'
 
 export type Guide = {
   id: string
   code: string
-  icon: string
+  icon: IconName
   category: Localized
   title: Localized
   summary: Localized
@@ -21,7 +22,7 @@ export const guides: Guide[] = [
   {
     id: 'phone-booking',
     code: '01',
-    icon: '📞',
+    icon: 'phone',
     category: { en: 'Booking & Calls', ko: '예약·전화' },
     title: {
       en: 'Book a clinic or salon without calling',
@@ -74,7 +75,7 @@ export const guides: Guide[] = [
   {
     id: 'delivery-no-phone',
     code: '02',
-    icon: '🛵',
+    icon: 'scooter',
     category: { en: 'Delivery & Spending', ko: '배달·소비' },
     title: { en: 'Order delivery without a Korean number', ko: '한국 번호 없이 배달 시키기' },
     summary: {
@@ -117,7 +118,7 @@ export const guides: Guide[] = [
   {
     id: 'deposit-scam',
     code: '03',
-    icon: '🏠',
+    icon: 'house',
     category: { en: 'Housing & Safety', ko: '주거·안전' },
     title: { en: 'Avoid goshiwon / one-room deposit scams', ko: '고시원·원룸 선입금 사기 피하기' },
     summary: {
@@ -161,7 +162,7 @@ export const guides: Guide[] = [
   {
     id: 'etiquette-transit',
     code: '04',
-    icon: '🚇',
+    icon: 'subway',
     category: { en: 'Etiquette & Manners', ko: '예의·매너' },
     title: { en: 'Transit etiquette — Koreans’ #1 pick', ko: '대중교통 에티켓 — 한국인이 꼽은 1순위' },
     summary: {
@@ -198,7 +199,7 @@ export const guides: Guide[] = [
   {
     id: 'gift-boss',
     code: '05',
-    icon: '🎁',
+    icon: 'gift',
     category: { en: 'Work & Etiquette', ko: '직장·예의' },
     title: { en: 'A gift on your first day — should you?', ko: '첫 출근 선물, 해야 할까?' },
     summary: {
@@ -239,7 +240,7 @@ export const guides: Guide[] = [
   {
     id: 'making-friends',
     code: '06',
-    icon: '🤝',
+    icon: 'handshake',
     category: { en: 'Belonging & Adjusting', ko: '적응·소속감' },
     title: { en: 'Making friends in Seoul', ko: '서울에서 친구 만들기' },
     summary: {
@@ -281,7 +282,7 @@ export const guides: Guide[] = [
   {
     id: 'dating-ldr',
     code: '07',
-    icon: '💗',
+    icon: 'heart',
     category: { en: 'Dating & Relationships', ko: '연애·관계' },
     title: { en: 'Dating & long-distance, realistically', ko: '연애·장거리, 현실적으로' },
     summary: {
@@ -322,7 +323,7 @@ export const guides: Guide[] = [
   {
     id: 'jobs-visa',
     code: '08',
-    icon: '🛂',
+    icon: 'passport',
     category: { en: 'Jobs & Visa', ko: '취업·비자' },
     title: { en: 'Working in Korea & visa basics', ko: '한국 취업과 비자 기본기' },
     summary: {
@@ -363,7 +364,7 @@ export const guides: Guide[] = [
   {
     id: 'military-enlistment',
     code: '09',
-    icon: '🎖️',
+    icon: 'medal',
     category: { en: 'Family & Military', ko: '가족·군복무' },
     title: { en: 'Enlistment: what changes for dual citizens', ko: '군 복무: 이중국적자에게 달라지는 것' },
     summary: {
@@ -404,7 +405,7 @@ export const guides: Guide[] = [
   {
     id: 'disability-access',
     code: '10',
-    icon: '♿',
+    icon: 'accessibility',
     category: { en: 'Health & Access', ko: '건강·접근성' },
     title: { en: 'Disability & accessibility in Korea', ko: '한국의 장애·접근성' },
     summary: {
@@ -445,7 +446,7 @@ export const guides: Guide[] = [
   {
     id: 'digital-life',
     code: '11',
-    icon: '📱',
+    icon: 'smartphone',
     category: { en: 'Digital Life', ko: '디지털 생활' },
     title: { en: 'KakaoTalk, Naver & staying scam-safe', ko: '카카오톡·네이버, 그리고 사기 예방' },
     summary: {

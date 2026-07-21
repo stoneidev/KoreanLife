@@ -1,10 +1,20 @@
 import { routes } from '@/shared/config/routes'
+import type { IconName } from '@/shared/ui'
 
-export const quickIndex = [
+type QuickItem = {
+  to: string
+  num: string
+  icon: IconName
+  tone: string
+  titleKey: string
+  descKey: string
+}
+
+export const quickIndex: QuickItem[] = [
   {
     to: routes.phrases,
     num: '1',
-    emoji: '💬',
+    icon: 'chat',
     tone: 't-coral',
     titleKey: 'quick.phrases.title',
     descKey: 'quick.phrases.desc',
@@ -12,7 +22,7 @@ export const quickIndex = [
   {
     to: routes.safety,
     num: '2',
-    emoji: '🛡️',
+    icon: 'shield',
     tone: 't-teal',
     titleKey: 'quick.safety.title',
     descKey: 'quick.safety.desc',
@@ -20,7 +30,7 @@ export const quickIndex = [
   {
     to: routes.guideDetail('delivery-no-phone'),
     num: '3',
-    emoji: '🛵',
+    icon: 'scooter',
     tone: 't-gold',
     titleKey: 'quick.delivery.title',
     descKey: 'quick.delivery.desc',
@@ -28,9 +38,9 @@ export const quickIndex = [
   {
     to: routes.reality,
     num: '4',
-    emoji: '🎬',
+    icon: 'film',
     tone: 't-ink',
     titleKey: 'quick.reality.title',
     descKey: 'quick.reality.desc',
   },
-] as const
+]

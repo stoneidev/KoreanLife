@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { routes } from '@/shared/config/routes'
 import { pick, useI18n } from '@/shared/i18n'
+import { Icon } from '@/shared/ui'
 import type { Guide } from '../model/guides'
 
 type GuideRowProps = {
@@ -12,7 +13,7 @@ export function GuideRow({ guide }: GuideRowProps) {
   return (
     <Link to={routes.guideDetail(guide.id)} className="guide-card">
       <div className="guide-card-cover" aria-hidden>
-        {guide.icon}
+        <Icon name={guide.icon} size={38} />
       </div>
       <div className="guide-card-body">
         <span className="cat">{pick(guide.category, lang)}</span>
@@ -52,13 +53,17 @@ export function GuideDetailBody({ guide }: GuideDetailBodyProps) {
           <h2>{t('guide.dosDonts')}</h2>
         </div>
         <div className="rule do">
-          <strong>✓ {t('guide.do')}</strong>
+          <strong>
+            <Icon name="check" size={15} /> {t('guide.do')}
+          </strong>
           {guide.dos.map((d) => (
             <p key={d.en}>{pick(d, lang)}</p>
           ))}
         </div>
         <div className="rule dont">
-          <strong>✕ {t('guide.dont')}</strong>
+          <strong>
+            <Icon name="close" size={15} /> {t('guide.dont')}
+          </strong>
           {guide.donts.map((d) => (
             <p key={d.en}>{pick(d, lang)}</p>
           ))}

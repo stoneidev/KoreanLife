@@ -198,7 +198,7 @@ button {
 }
 
 .lang-toggle-globe {
-  font-size: 14px;
+  display: block;
 }
 
 /* ---------- hero ---------- */
@@ -376,12 +376,28 @@ button {
   box-shadow: var(--sh-md);
 }
 
-.tile-emoji {
+.tile-icon {
   position: absolute;
   top: 12px;
   left: 14px;
-  font-size: 30px;
-  filter: drop-shadow(0 3px 6px rgba(28, 27, 46, 0.16));
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: var(--card);
+  color: var(--coral-ink);
+  box-shadow: var(--sh-sm);
+}
+
+.tile.t-teal .tile-icon {
+  color: var(--teal);
+}
+.tile.t-gold .tile-icon {
+  color: var(--gold);
+}
+.tile.t-ink .tile-icon {
+  color: var(--ink);
 }
 
 .tile-badge {
@@ -450,7 +466,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 42px;
+  color: var(--coral-ink);
   background: linear-gradient(135deg, #fff, var(--coral-soft));
 }
 
@@ -791,6 +807,10 @@ button {
   gap: 6px;
 }
 
+.reality-source svg {
+  flex-shrink: 0;
+}
+
 /* ---------- page head ---------- */
 .page-head {
   padding: 8px 20px 0;
@@ -924,10 +944,8 @@ button {
 }
 
 .bottom-nav .nav-icon {
-  font-size: 20px;
   line-height: 1;
-  filter: grayscale(1) opacity(0.55);
-  transition: filter 0.12s ease, transform 0.12s ease;
+  transition: transform 0.12s ease;
 }
 
 .bottom-nav a.active {
@@ -935,7 +953,6 @@ button {
 }
 
 .bottom-nav a.active .nav-icon {
-  filter: none;
   transform: translateY(-1px) scale(1.08);
 }
 

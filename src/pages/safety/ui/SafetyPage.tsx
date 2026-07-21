@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { ScamDiagnoser } from '@/features/diagnose-scam'
 import { routes } from '@/shared/config/routes'
 import { useI18n } from '@/shared/i18n'
-import { BlockHead, PageHead, Screen } from '@/shared/ui'
+import { BlockHead, Icon, PageHead, Screen } from '@/shared/ui'
 
 export function SafetyPage() {
   const { t } = useI18n()
@@ -30,7 +30,7 @@ export function SafetyPage() {
           className="btn btn-primary btn-block"
           style={{ marginTop: 14 }}
         >
-          {t('safety.fullGuide')} →
+          {t('safety.fullGuide')} <Icon name="arrow-right" size={16} />
         </Link>
       </section>
     </Screen>

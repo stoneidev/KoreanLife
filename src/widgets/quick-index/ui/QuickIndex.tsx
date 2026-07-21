@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useI18n } from '@/shared/i18n'
-import { BlockHead } from '@/shared/ui'
+import { BlockHead, Icon } from '@/shared/ui'
 import { quickIndex } from '../model/items'
 
 export function QuickIndex() {
@@ -12,8 +12,8 @@ export function QuickIndex() {
       <div className="tile-grid">
         {quickIndex.map((q) => (
           <Link key={q.num} to={q.to} className={`tile ${q.tone}`}>
-            <span className="tile-emoji" aria-hidden>
-              {q.emoji}
+            <span className="tile-icon" aria-hidden>
+              <Icon name={q.icon} size={26} />
             </span>
             <span className="tile-badge">{q.num}</span>
             <strong>{t(q.titleKey)}</strong>

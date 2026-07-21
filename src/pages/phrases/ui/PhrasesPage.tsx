@@ -10,8 +10,8 @@ export function PhrasesPage() {
   const [setId, setSetId] = useState(phraseSets[0].id)
   const current = getPhraseSetById(setId)!
 
-  const options = phraseSets.map((s) => `${s.emoji} ${pick(s.label, lang)}`)
-  const currentOption = `${current.emoji} ${pick(current.label, lang)}`
+  const options = phraseSets.map((s) => pick(s.label, lang))
+  const currentOption = pick(current.label, lang)
 
   return (
     <Screen>
@@ -25,7 +25,7 @@ export function PhrasesPage() {
           options={options}
           value={currentOption}
           onChange={(option) => {
-            const next = phraseSets.find((s) => `${s.emoji} ${pick(s.label, lang)}` === option)
+            const next = phraseSets.find((s) => pick(s.label, lang) === option)
             if (next) setSetId(next.id)
           }}
         />

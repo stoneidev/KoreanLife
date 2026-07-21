@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import type { Phrase } from '@/entities/phrase'
 import { useI18n } from '@/shared/i18n'
-import { Toast } from '@/shared/ui'
+import { Icon, Toast } from '@/shared/ui'
 import { copyText, speakKorean } from '../lib/phrase-actions'
 
 type PhraseSheetProps = {
@@ -30,10 +30,10 @@ export function PhraseSheet({ phrase }: PhraseSheetProps) {
         <p className="en">{phrase.en}</p>
         <div className="actions">
           <button type="button" onClick={copy}>
-            📋 {t('phrases.copy')}
+            <Icon name="copy" size={16} /> {t('phrases.copy')}
           </button>
           <button type="button" onClick={() => speakKorean(phrase.ko)}>
-            🔊 {t('phrases.listen')}
+            <Icon name="volume" size={16} /> {t('phrases.listen')}
           </button>
         </div>
       </article>

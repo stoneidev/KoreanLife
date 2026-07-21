@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { scamChecklist } from '@/entities/scam-check'
 import { pick, useI18n } from '@/shared/i18n'
+import { Icon } from '@/shared/ui'
 import { getScamVerdict, scoreScamChecks } from '../model/verdict'
 
 export function ScamDiagnoser() {
@@ -46,7 +47,7 @@ export function ScamDiagnoser() {
               tabIndex={0}
             >
               <div className="box" aria-hidden>
-                {on ? '✓' : ''}
+                {on ? <Icon name="check" size={14} /> : null}
               </div>
               <p>
                 {pick(item.text, lang)}

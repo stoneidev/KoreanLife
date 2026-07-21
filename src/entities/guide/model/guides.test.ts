@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest'
+import { iconNames } from '@/shared/ui'
 import {
   filterGuidesByCategory,
   getGuideById,
@@ -10,6 +11,13 @@ describe('guides data', () => {
   it('has unique ids', () => {
     const ids = guides.map((g) => g.id)
     expect(new Set(ids).size).toBe(ids.length)
+  })
+
+  it('every icon is a registered pictogram', () => {
+    const registered = new Set<string>(iconNames)
+    for (const g of guides) {
+      expect(registered.has(g.icon), `${g.id} → ${g.icon}`).toBe(true)
+    }
   })
 
   it('every localized field is filled in both languages', () => {
@@ -29,7 +37,7 @@ describe('guides data', () => {
 
 describe('getGuideById', () => {
   it('finds a guide', () => {
-    expect(getGuideById('deposit-scam')?.icon).toBe('🏠')
+    expect(getGuideById('deposit-scam')?.icon).toBe('house')
   })
   it('returns undefined for unknown ids', () => {
     expect(getGuideById('nope')).toBeUndefined()

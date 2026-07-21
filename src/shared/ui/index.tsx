@@ -1,5 +1,9 @@
 import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
+import { Icon } from './Icon'
+
+export { Icon, iconNames } from './Icon'
+export type { IconName } from './Icon'
 
 type BlockHeadProps = {
   title: string
@@ -29,7 +33,7 @@ export function PageHead({ kicker, title, lead, backTo, backLabel = 'Back' }: Pa
     <div className="page-head">
       {backTo ? (
         <Link to={backTo} className="back">
-          ← {backLabel}
+          <Icon name="arrow-left" size={16} /> {backLabel}
         </Link>
       ) : null}
       <p className="kicker">{kicker}</p>
@@ -50,7 +54,9 @@ type TipProps = {
 export function Tip({ children }: TipProps) {
   return (
     <div className="rule do" style={{ marginTop: 18 }}>
-      <strong>💡 Tip</strong>
+      <strong>
+        <Icon name="lightbulb" size={15} /> Tip
+      </strong>
       <p>{children}</p>
     </div>
   )
@@ -72,7 +78,7 @@ type ToastProps = {
 export function Toast({ message }: ToastProps) {
   return (
     <div className="toast" role="status">
-      <span aria-hidden>✓</span>
+      <Icon name="check" size={16} />
       {message}
     </div>
   )

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { routes } from '@/shared/config/routes'
 import { useI18n } from '@/shared/i18n'
+import { Icon } from '@/shared/ui'
 
 export function HomeHero() {
   const { t } = useI18n()
@@ -12,10 +13,10 @@ export function HomeHero() {
       <p>{t('home.hero.lead')}</p>
       <div className="hero-cta">
         <Link to={routes.phrases} className="btn btn-fill">
-          💬 {t('home.hero.ctaPhrases')}
+          <Icon name="chat" size={17} /> {t('home.hero.ctaPhrases')}
         </Link>
         <Link to={routes.safety} className="btn btn-ghost">
-          🛡️ {t('home.hero.ctaSafety')}
+          <Icon name="shield" size={17} /> {t('home.hero.ctaSafety')}
         </Link>
       </div>
     </section>
