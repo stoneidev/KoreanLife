@@ -11,6 +11,6 @@
     "ALLOWED_ORIGIN": "https://koreanlife.pages.dev"
   },
   "kv_namespaces": [
-    { "binding": "SUBSCRIPTIONS", "id": "PLACEHOLDER_REPLACED_ON_DEPLOY" }
+    { "binding": "SUBSCRIPTIONS", "id": "075a0b583c9543be9f5caca2deae6d37" }
   ]
 }
