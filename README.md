@@ -67,6 +67,14 @@ npm run test:watch
 - Pretendard + Noto Sans KR
 - 외부 UI 라이브러리 없음 — 커스텀 CSS (`src/app/styles/index.css`)
 
+## 실시간 커뮤니티 피드 (실제 동작)
+
+- `커뮤니티` 탭은 **r/AskAKorean 최신 글을 실시간으로** 불러옵니다.
+- 소스: Arctic Shift 미러 API (Reddit 공식 API는 브라우저에서 403 → 미러가 CORS `*` 허용)
+- 백엔드 없이 클라이언트에서 직접 fetch → 파싱 → 로딩 스켈레톤·에러·재시도 UI
+- 카드 탭 시 원문 Reddit 스레드로 이동. NSFW·고정글 필터, 상대시간(EN/KO) 표시
+- 계층: `entities/community-post`(파싱) · `features/community-feed`(fetch·훅·UI) · `pages/community`
+
 ## 커버리지 (11개 가이드 + 7개 리얼체크)
 
 정착 초기 실무(예약·배달·주거·예의·직장·친구)에 더해 리포트 상위 pain point 확장:

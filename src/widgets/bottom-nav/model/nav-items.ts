@@ -14,5 +14,6 @@ export const navItems: NavItem[] = [
   { to: routes.guides, labelKey: 'nav.guides', icon: 'compass' },
   { to: routes.phrases, labelKey: 'nav.phrases', icon: 'chat' },
   { to: routes.reality, labelKey: 'nav.reality', icon: 'film' },
+  { to: routes.community, labelKey: 'nav.community', icon: 'people' },
   { to: routes.safety, labelKey: 'nav.safety', icon: 'shield' },
 ]

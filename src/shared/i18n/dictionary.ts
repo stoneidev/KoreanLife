@@ -14,6 +14,7 @@ export const dictionary: Dictionary = {
     'nav.guides': 'Guides',
     'nav.phrases': 'Phrases',
     'nav.reality': 'Reality',
+    'nav.community': 'Community',
     'nav.safety': 'Safety',
 
     'lang.toggle': '한국어',
@@ -87,6 +88,15 @@ export const dictionary: Dictionary = {
     'community.answer':
       'Koreans’ overwhelming #1 answer: being loud on public transit. See the full summary in the etiquette guide.',
     'community.cta': 'Read the summary',
+
+    'community.kicker': 'Live · r/AskAKorean',
+    'community.title': 'Community feed',
+    'community.lead': 'The newest questions on r/AskAKorean, live. Tap to open on Reddit.',
+    'community.loading': 'Loading the latest posts…',
+    'community.error': 'Couldn’t load the feed. Check your connection and try again.',
+    'community.retry': 'Try again',
+    'community.empty': 'No posts right now — check back soon.',
+    'community.comments': '{n} comments',
   },
   ko: {
     'app.name': 'KoreanLife',
@@ -96,6 +106,7 @@ export const dictionary: Dictionary = {
     'nav.guides': '가이드',
     'nav.phrases': '문장',
     'nav.reality': '리얼',
+    'nav.community': '커뮤니티',
     'nav.safety': '안전',
 
     'lang.toggle': 'EN',
@@ -169,5 +180,14 @@ export const dictionary: Dictionary = {
     'community.answer':
       '한국인 답변 압도적 1위는 대중교통에서의 큰 소리. 에티켓 가이드에서 전체 요약을 확인하세요.',
     'community.cta': '요약 보기',
+
+    'community.kicker': '실시간 · r/AskAKorean',
+    'community.title': '커뮤니티 피드',
+    'community.lead': 'r/AskAKorean의 최신 질문을 실시간으로. 탭하면 Reddit에서 열립니다.',
+    'community.loading': '최신 글을 불러오는 중…',
+    'community.error': '피드를 불러오지 못했어요. 연결을 확인하고 다시 시도하세요.',
+    'community.retry': '다시 시도',
+    'community.empty': '지금은 글이 없어요 — 잠시 후 다시 확인하세요.',
+    'community.comments': '댓글 {n}',
   },
 }

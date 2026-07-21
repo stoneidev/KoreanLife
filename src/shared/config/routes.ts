@@ -5,4 +5,5 @@ export const routes = {
   phrases: '/phrases',
   reality: '/reality',
   safety: '/safety',
+  community: '/community',
 } as const

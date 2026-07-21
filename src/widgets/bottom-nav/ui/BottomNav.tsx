@@ -7,7 +7,10 @@ export function BottomNav() {
   const { t } = useI18n()
 
   return (
-    <nav className="bottom-nav">
+    <nav
+      className="bottom-nav"
+      style={{ gridTemplateColumns: `repeat(${navItems.length}, 1fr)` }}
+    >
       {navItems.map((item) => (
         <NavLink
           key={item.to}
