@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import { PUSH_API_BASE, VAPID_PUBLIC_KEY, isPushSupported } from '../config'
-import { urlBase64ToUint8Array } from '../lib/vapid'
+import { subscriptionMatchesKey, urlBase64ToUint8Array } from '../lib/vapid'
 import { nextPushState } from './push-state'
 import type { PushState } from './push-state'
 
@@ -65,13 +65,22 @@ export function usePushNotify(): UsePushNotify {
         return
       }
       const reg = await getRegistration()
+      const appServerKey = urlBase64ToUint8Array(VAPID_PUBLIC_KEY)
+
+      // Drop any subscription created with a different VAPID key (key rotation),
+      // otherwise subscribe() would either reuse a stale sub or throw.
       const existing = await reg.pushManager.getSubscription()
+      if (existing && !subscriptionMatchesKey(existing, appServerKey)) {
+        await existing.unsubscribe()
+      }
+      const current = subscriptionMatchesKey(existing, appServerKey) ? existing : null
+
       const sub =
-        existing ??
+        current ??
         (await reg.pushManager.subscribe({
           userVisibleOnly: true,
           // .buffer is a plain ArrayBuffer — satisfies BufferSource across TS lib versions
-          applicationServerKey: urlBase64ToUint8Array(VAPID_PUBLIC_KEY).buffer as ArrayBuffer,
+          applicationServerKey: appServerKey.buffer as ArrayBuffer,
         }))
 
       const res = await fetch(`${PUSH_API_BASE}/api/push/subscribe`, {

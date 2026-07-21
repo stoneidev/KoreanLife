@@ -23,7 +23,18 @@ async function sendPush(
   sub: PushSubscriptionShape,
   payload: string,
 ): Promise<number> {
-  const keys = await ApplicationServerKeys.fromJSON(JSON.parse(env.VAPID_JWK))
+  let parsed: unknown
+  try {
+    parsed = JSON.parse(env.VAPID_JWK)
+  } catch {
+    throw new Error('VAPID_JWK is not valid JSON')
+  }
+  // webpush-webcrypto expects { publicKey, privateKey } (base64url raw + pkcs8)
+  const p = parsed as { publicKey?: unknown; privateKey?: unknown }
+  if (typeof p?.publicKey !== 'string' || typeof p?.privateKey !== 'string') {
+    throw new Error('VAPID_JWK must be {"publicKey","privateKey"} (from ApplicationServerKeys.toJSON)')
+  }
+  const keys = await ApplicationServerKeys.fromJSON(parsed as { publicKey: string; privateKey: string })
   const { headers, body, endpoint } = await generatePushHTTPRequest({
     applicationServerKeys: keys,
     payload,

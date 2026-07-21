@@ -14,6 +14,8 @@ function installPushEnv(
 ) {
   const subscription = {
     toJSON: () => ({ endpoint: 'https://push/abc', keys: { p256dh: 'p', auth: 'a' } }),
+    options: { applicationServerKey: new Uint8Array([1, 2, 3]).buffer },
+    unsubscribe: vi.fn(async () => true),
   }
   const pushManager = {
     getSubscription: vi.fn(async () => (opts.existing ? subscription : null)),

@@ -34,7 +34,7 @@ function makeEnv(kv = makeKV()) {
     SUBSCRIPTIONS: kv as unknown as KVNamespace,
     VAPID_SUBJECT: 'mailto:test@example.com',
     ALLOWED_ORIGIN: 'https://koreanlife.pages.dev',
-    VAPID_JWK: '{}',
+    VAPID_JWK: JSON.stringify({ publicKey: 'stub-public', privateKey: 'stub-private' }),
     _kv: kv,
   }
 }
@@ -102,6 +102,17 @@ describe('worker fetch handler', () => {
     const res = await worker.fetch(post('/api/push/test', { subscription: VALID_SUB }), env)
     expect(res.status).toBe(502)
     expect(env._kv.delete).toHaveBeenCalledOnce()
+  })
+
+  it('test endpoint errors clearly when VAPID_JWK is the wrong shape', async () => {
+    const env = makeEnv()
+    // a bare EC JWK (what we mistakenly stored at first) lacks publicKey/privateKey
+    env.VAPID_JWK = JSON.stringify({ kty: 'EC', crv: 'P-256', d: 'x', x: 'y', z: 'z' })
+    const fetchSpy = vi.spyOn(globalThis, 'fetch')
+    const res = await worker.fetch(post('/api/push/test', { subscription: VALID_SUB }), env)
+    expect(res.status).toBe(500)
+    expect((await res.json()).error).toMatch(/VAPID_JWK must be/)
+    expect(fetchSpy).not.toHaveBeenCalled()
   })
 
   it('unknown route returns 404', async () => {
