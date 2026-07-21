@@ -32,15 +32,19 @@ export function usePushNotify(): UsePushNotify {
   useEffect(() => {
     if (!supported) return
     let active = true
+    const appServerKey = urlBase64ToUint8Array(VAPID_PUBLIC_KEY)
     getRegistration()
       .then((reg) => reg.pushManager.getSubscription())
       .then((sub) => {
         if (!active) return
+        // A subscription made with a rotated key can't receive our pushes —
+        // treat it as not subscribed so the UI prompts to re-enable.
+        const usable = subscriptionMatchesKey(sub, appServerKey)
         setState(
           nextPushState({
             supported: true,
             permission: Notification.permission,
-            subscribed: !!sub,
+            subscribed: usable,
           }),
         )
       })
