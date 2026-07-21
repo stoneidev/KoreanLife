@@ -16,7 +16,7 @@ export function SafetyPage() {
       </div>
       <section className="block" style={{ paddingBottom: 24 }}>
         <BlockHead title="사기 의심될 때" />
-        <div className="help-row">
+        <div className="help-list">
           <div>
             <strong>경찰 112 · 외국인 통역 1345</strong>
             <span>다누리콜센터는 13개 언어 통역 지원</span>

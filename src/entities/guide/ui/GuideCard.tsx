@@ -8,12 +8,15 @@ type GuideRowProps = {
 
 export function GuideRow({ guide }: GuideRowProps) {
   return (
-    <Link to={routes.guideDetail(guide.id)} className="guide-row">
-      <span className="cat">
-        {guide.code} · {guide.category}
-      </span>
-      <h3>{guide.title}</h3>
-      <p>{guide.summary}</p>
+    <Link to={routes.guideDetail(guide.id)} className="guide-card">
+      <div className="guide-card-cover" aria-hidden>
+        {guide.icon}
+      </div>
+      <div className="guide-card-body">
+        <span className="cat">{guide.category}</span>
+        <h3>{guide.title}</h3>
+        <p>{guide.summary}</p>
+      </div>
     </Link>
   )
 }
@@ -26,7 +29,7 @@ export function GuideDetailBody({ guide }: GuideDetailBodyProps) {
   return (
     <>
       <div className="why-box">
-        <span className="mono">Why — community signal</span>
+        <span className="kicker">Why — community signal</span>
         {guide.pain}
       </div>
 
@@ -46,15 +49,15 @@ export function GuideDetailBody({ guide }: GuideDetailBodyProps) {
           <h2>Do / Don&apos;t</h2>
         </div>
         <div className="rule do">
-          <strong>Do</strong>
+          <strong>✓ Do</strong>
           {guide.dos.map((d) => (
-            <p key={d}>· {d}</p>
+            <p key={d}>{d}</p>
           ))}
         </div>
         <div className="rule dont">
-          <strong>Don&apos;t</strong>
+          <strong>✕ Don&apos;t</strong>
           {guide.donts.map((d) => (
-            <p key={d}>· {d}</p>
+            <p key={d}>{d}</p>
           ))}
         </div>
       </section>

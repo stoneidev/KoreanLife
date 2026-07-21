@@ -32,15 +32,26 @@ export function PageHead({ kicker, title, lead, backTo, backLabel = 'Back' }: Pa
           ← {backLabel}
         </Link>
       ) : null}
-      <p className="mono">{kicker}</p>
-      <h1 className="display" style={{ fontSize: 32, marginTop: 6 }}>
-        {title}
-      </h1>
+      <p className="kicker">{kicker}</p>
+      <h1>{title}</h1>
       {lead ? (
         <p className="lead" style={{ marginTop: 8 }}>
           {lead}
         </p>
       ) : null}
+    </div>
+  )
+}
+
+type TipProps = {
+  children: ReactNode
+}
+
+export function Tip({ children }: TipProps) {
+  return (
+    <div className="rule do" style={{ marginTop: 18 }}>
+      <strong>💡 Tip</strong>
+      <p>{children}</p>
     </div>
   )
 }
@@ -59,5 +70,10 @@ type ToastProps = {
 }
 
 export function Toast({ message }: ToastProps) {
-  return <div className="toast">{message}</div>
+  return (
+    <div className="toast" role="status">
+      <span aria-hidden>✓</span>
+      {message}
+    </div>
+  )
 }

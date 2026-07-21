@@ -24,12 +24,8 @@ export function GuideDetailPage() {
         <Link to={routes.guides} className="back">
           ← Guides
         </Link>
-        <p className="mono">
-          {guide.code} · {guide.category}
-        </p>
-        <h1 className="display" style={{ fontSize: 28, marginTop: 8 }}>
-          {guide.title}
-        </h1>
+        <p className="kicker">{guide.category}</p>
+        <h1>{guide.title}</h1>
       </div>
 
       <GuideDetailBody guide={guide} />

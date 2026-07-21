@@ -1,25 +1,26 @@
 import { Link } from 'react-router-dom'
+import { useI18n } from '@/shared/i18n'
 import { BlockHead } from '@/shared/ui'
 import { quickIndex } from '../model/items'
 
 export function QuickIndex() {
+  const { t } = useI18n()
+
   return (
     <section className="block">
-      <BlockHead title="즉시 해결" meta="INDEX / 01–04" />
-      <ul className="index-list">
+      <BlockHead title={t('quick.heading')} />
+      <div className="tile-grid">
         {quickIndex.map((q) => (
-          <li key={q.num}>
-            <Link to={q.to}>
-              <span className="index-num">{q.num}</span>
-              <span>
-                <strong>{q.title}</strong>
-                <span>{q.desc}</span>
-              </span>
-              <span className="index-arrow">→</span>
-            </Link>
-          </li>
+          <Link key={q.num} to={q.to} className={`tile ${q.tone}`}>
+            <span className="tile-emoji" aria-hidden>
+              {q.emoji}
+            </span>
+            <span className="tile-badge">{q.num}</span>
+            <strong>{t(q.titleKey)}</strong>
+            <span>{t(q.descKey)}</span>
+          </Link>
         ))}
-      </ul>
+      </div>
     </section>
   )
 }

@@ -22,16 +22,16 @@ export function PhraseSheet({ phrase }: PhraseSheetProps) {
 
   return (
     <>
-      <article className="phrase-sheet">
+      <article className="phrase-card">
         <p className="ko">{phrase.ko}</p>
         <p className="roman">{phrase.roman}</p>
         <p className="en">{phrase.en}</p>
         <div className="actions">
           <button type="button" onClick={copy}>
-            복사
+            📋 복사
           </button>
           <button type="button" onClick={() => speakKorean(phrase.ko)}>
-            듣기
+            🔊 듣기
           </button>
         </div>
       </article>

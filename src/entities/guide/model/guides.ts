@@ -1,6 +1,7 @@
 export type Guide = {
   id: string
   code: string
+  icon: string
   category: string
   title: string
   summary: string
@@ -14,6 +15,7 @@ export const guides: Guide[] = [
   {
     id: 'phone-booking',
     code: '01',
+    icon: '📞',
     category: '예약·전화',
     title: '전화 없이 병원·미용실 예약하기',
     summary: '네이버 예약·카카오맵·앱으로 전화 장벽 우회',
@@ -30,6 +32,7 @@ export const guides: Guide[] = [
   {
     id: 'delivery-no-phone',
     code: '02',
+    icon: '🛵',
     category: '배달·소비',
     title: '한국 번호 없이 배달 시키기',
     summary: '쿠팡이츠 Google 로그인 → 가장 진입장벽 낮음',
@@ -46,6 +49,7 @@ export const guides: Guide[] = [
   {
     id: 'deposit-scam',
     code: '03',
+    icon: '🏠',
     category: '주거·안전',
     title: '고시원·원룸 선입금 사기 피하기',
     summary: '계약 전 송금 요구 = 최대 위험 신호',
@@ -62,6 +66,7 @@ export const guides: Guide[] = [
   {
     id: 'etiquette-transit',
     code: '04',
+    icon: '🚇',
     category: '예의·매너',
     title: '대중교통 에티켓 — 한국인이 꼽은 1순위',
     summary: '"외국인이 하지 않았으면 하는 것" 98개 댓글 요약',
@@ -78,6 +83,7 @@ export const guides: Guide[] = [
   {
     id: 'gift-boss',
     code: '05',
+    icon: '🎁',
     category: '직장·예의',
     title: '첫 출근 선물, 해야 할까?',
     summary: '상사 선물은 필수 아님 — 팀 간식이 안전한 선택',
@@ -94,6 +100,7 @@ export const guides: Guide[] = [
   {
     id: 'making-friends',
     code: '06',
+    icon: '🤝',
     category: '적응·소속감',
     title: '서울에서 친구 만들기',
     summary: '"양쪽 다 수줍어서 말을 못 건다" — 구조로 해결',

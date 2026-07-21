@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { getPhraseSetById, phraseSets } from '@/entities/phrase'
 import { FilterBar } from '@/features/filter-by-category'
 import { PhraseSheet } from '@/features/use-phrase-sheet'
-import { PageHead, Screen } from '@/shared/ui'
+import { PageHead, Screen, Tip } from '@/shared/ui'
 
 export function PhrasesPage() {
   const [setId, setSetId] = useState(phraseSets[0].id)
@@ -29,11 +29,10 @@ export function PhrasesPage() {
           <PhraseSheet key={p.ko} phrase={p} />
         ))}
 
-        <div className="tip-strip">
-          <strong>Tip. </strong>
+        <Tip>
           전화가 두렵다면 첫 문장은 항상 &ldquo;한국어가 서툴러서 천천히 말씀해 주세요&rdquo;로
           시작하세요. 상대의 말 속도가 확 달라집니다.
-        </div>
+        </Tip>
       </div>
     </Screen>
   )

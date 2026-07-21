@@ -11,7 +11,7 @@ export function FilterBar({ options, value, onChange }: FilterBarProps) {
         <button
           key={option}
           type="button"
-          className={value === option ? 'on' : ''}
+          className={`chip ${value === option ? 'on' : ''}`}
           onClick={() => onChange(option)}
         >
           {option}
