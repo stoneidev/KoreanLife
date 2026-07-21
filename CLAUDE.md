@@ -118,6 +118,32 @@ npx wrangler pages deploy dist --project-name koreanlife --branch main --commit-
 - SPA fallback: `public/_redirects` (`/* /index.html 200`) — 딥링크(`/apps` 등) 새로고침 404 방지.
 - 첫 배포 직후 몇 초간 route 전파(에러 1042)될 수 있으니 대기 후 재확인.
 
+### GitHub Actions (main 푸시 → 자동 배포)
+
+워크플로: [`.github/workflows/deploy.yml`](./.github/workflows/deploy.yml)  
+`main` 푸시 / 수동 `workflow_dispatch` 시 테스트 후 Pages + Worker 배포. PR은 테스트만.
+
+리포지토리 Secrets (Settings → Secrets and variables → Actions):
+
+| Secret | 값 |
+|--------|-----|
+| `CLOUDFLARE_ACCOUNT_ID` | Cloudflare Account ID |
+| `CLOUDFLARE_API_TOKEN` | API Token (아래 권한) |
+
+토큰 생성: [Account API tokens](https://dash.cloudflare.com/profile/api-tokens) → Create Token → Custom token
+
+- Account → **Cloudflare Pages** → Edit
+- Account → **Workers Scripts** → Edit
+- Account → **Workers KV Storage** → Edit
+- Account → **D1** → Edit
+- Account → **Account Settings** → Read
+
+```bash
+# 로컬에서 시크릿 주입 예
+gh secret set CLOUDFLARE_API_TOKEN
+gh secret set CLOUDFLARE_ACCOUNT_ID
+```
+
 ## 자주 하는 실수 (피할 것)
 
 - 셸 `cd`가 세션 간 유지되지 않음 → wrangler는 `--config <절대경로>` 권장.
