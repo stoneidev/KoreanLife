@@ -3,6 +3,7 @@ import { GuideRow, guides } from '@/entities/guide'
 import { routes } from '@/shared/config/routes'
 import { useI18n } from '@/shared/i18n'
 import { BlockHead, Screen } from '@/shared/ui'
+import { PushCard } from '@/features/push-notify'
 import { CommunityNote } from '@/widgets/community-note'
 import { EssentialApps } from '@/widgets/essential-apps'
 import { HomeHero } from '@/widgets/home-hero'
@@ -29,6 +30,9 @@ export function HomePage() {
         ))}
       </section>
       <CommunityNote />
+      <section className="block" style={{ paddingBottom: 8 }}>
+        <PushCard />
+      </section>
     </Screen>
   )
 }

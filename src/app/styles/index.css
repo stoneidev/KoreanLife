@@ -1286,3 +1286,50 @@ button {
 .app-card-compact .app-tagline {
   margin-top: 0;
 }
+
+/* ---------- push notifications card ---------- */
+.push-card {
+  background: linear-gradient(160deg, var(--card), var(--card-2));
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 18px;
+  box-shadow: var(--sh-sm);
+}
+
+.push-card-head {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.push-card-head strong {
+  font-size: 15.5px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.push-card-head .mute {
+  margin-top: 2px;
+}
+
+.push-note {
+  font-size: 13px;
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: var(--r-sm);
+  line-height: 1.45;
+}
+
+.push-note-ok {
+  background: var(--ok-soft);
+  color: var(--ok);
+}
+
+.push-note-warn {
+  background: var(--warn-soft);
+  color: var(--warn);
+}
+
+.push-actions {
+  margin-top: 14px;
+}

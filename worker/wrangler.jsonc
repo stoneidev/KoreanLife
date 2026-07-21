@@ -1,0 +1,16 @@
+{
+  "$schema": "../node_modules/wrangler/config-schema.json",
+  "name": "koreanlife-push",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-07-01",
+  "observability": {
+    "enabled": true
+  },
+  "vars": {
+    "VAPID_SUBJECT": "mailto:nijin39@gmail.com",
+    "ALLOWED_ORIGIN": "https://koreanlife.pages.dev"
+  },
+  "kv_namespaces": [
+    { "binding": "SUBSCRIPTIONS", "id": "PLACEHOLDER_REPLACED_ON_DEPLOY" }
+  ]
+}

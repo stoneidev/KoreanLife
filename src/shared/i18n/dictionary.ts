@@ -105,6 +105,16 @@ export const dictionary: Dictionary = {
     'apps.lead': 'The apps foreigners in Korea rely on daily. Tap a card to get it.',
     'apps.homeHeading': 'Must-have apps',
     'apps.mustHave': 'Must-have',
+
+    'push.title': 'Notifications',
+    'push.lead': 'Get a heads-up from KoreanLife. Try it with a test push.',
+    'push.enable': 'Turn on notifications',
+    'push.enabling': 'Turning on…',
+    'push.sendTest': 'Send a test notification',
+    'push.testSent': 'Test notification sent — check your device!',
+    'push.denied': 'Notifications are blocked. Enable them in your browser settings.',
+    'push.unsupported': 'This browser doesn’t support push notifications.',
+    'push.error': 'Something went wrong. Please try again.',
   },
   ko: {
     'app.name': 'KoreanLife',
@@ -205,5 +215,15 @@ export const dictionary: Dictionary = {
     'apps.lead': '한국 사는 외국인이 매일 쓰는 앱. 카드를 탭하면 받을 수 있어요.',
     'apps.homeHeading': '필수 앱',
     'apps.mustHave': '필수',
+
+    'push.title': '알림',
+    'push.lead': 'KoreanLife 알림을 받아보세요. 테스트 푸시로 확인해보세요.',
+    'push.enable': '알림 켜기',
+    'push.enabling': '켜는 중…',
+    'push.sendTest': '테스트 알림 보내기',
+    'push.testSent': '테스트 알림 발송됨 — 기기를 확인하세요!',
+    'push.denied': '알림이 차단되어 있어요. 브라우저 설정에서 허용해주세요.',
+    'push.unsupported': '이 브라우저는 푸시 알림을 지원하지 않아요.',
+    'push.error': '문제가 발생했어요. 다시 시도해주세요.',
   },
 }
