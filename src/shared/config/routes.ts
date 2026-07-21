@@ -6,4 +6,5 @@ export const routes = {
   reality: '/reality',
   safety: '/safety',
   community: '/community',
+  apps: '/apps',
 } as const

@@ -75,6 +75,13 @@ npm run test:watch
 - 카드 탭 시 원문 Reddit 스레드로 이동. NSFW·고정글 필터, 상대시간(EN/KO) 표시
 - 계층: `entities/community-post`(파싱) · `features/community-feed`(fetch·훅·UI) · `pages/community`
 
+## 필수 앱 가이드 (카드)
+
+- 홈의 `필수 앱` 스트립(가로 스크롤) + 전용 `/apps` 페이지(카테고리별 전체)
+- 외국인이 매일 쓰는 앱을 카테고리(메신저·지도·결제·배달·쇼핑·번역·택시)로 큐레이션
+- 각 카드: 앱 이름 · 한 줄 요약 · "왜 필요한가" · `필수` 배지 · 탭 시 공식 사이트로 이동
+- 계층: `entities/essential-app`(데이터·카드) · `widgets/essential-apps`(홈 스트립) · `pages/apps`
+
 ## 커버리지 (11개 가이드 + 7개 리얼체크)
 
 정착 초기 실무(예약·배달·주거·예의·직장·친구)에 더해 리포트 상위 pain point 확장:

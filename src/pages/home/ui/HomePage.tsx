@@ -4,6 +4,7 @@ import { routes } from '@/shared/config/routes'
 import { useI18n } from '@/shared/i18n'
 import { BlockHead, Screen } from '@/shared/ui'
 import { CommunityNote } from '@/widgets/community-note'
+import { EssentialApps } from '@/widgets/essential-apps'
 import { HomeHero } from '@/widgets/home-hero'
 import { QuickIndex } from '@/widgets/quick-index'
 import { Topbar } from '@/widgets/topbar'
@@ -17,6 +18,7 @@ export function HomePage() {
       <Topbar />
       <HomeHero />
       <QuickIndex />
+      <EssentialApps />
       <section className="block">
         <BlockHead
           title={t('home.popularGuides')}

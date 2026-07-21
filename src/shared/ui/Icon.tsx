@@ -173,6 +173,61 @@ const paths: Record<string, ReactNode> = {
       <path d="M15.5 7.2a2.4 2.4 0 0 1 0 4.6M16.5 14.7c2 .5 3.5 2.1 3.5 4.3" />
     </>
   ),
+  map: (
+    <>
+      <path d="M9 4.5 4.5 6.5v13L9 17.5l6 2 4.5-2v-13L15 6.5l-6-2Z" />
+      <path d="M9 4.5v13M15 6.5v13" />
+    </>
+  ),
+  translate: (
+    <>
+      <path d="M4 6h7M7.5 4.5V6c0 3.5-1.5 6.5-4 8" />
+      <path d="M5.5 10c1.2 2 3 3.4 5 4" />
+      <path d="m12.5 19 3.5-8 3.5 8M13.7 16.3h4.6" />
+    </>
+  ),
+  wallet: (
+    <>
+      <rect x="4" y="6" width="16" height="13" rx="2.5" />
+      <path d="M4 9.5h13a1 1 0 0 1 1 1V14" />
+      <circle cx="16" cy="13" r="1.1" fill="currentColor" stroke="none" />
+    </>
+  ),
+  card: (
+    <>
+      <rect x="3.5" y="6" width="17" height="12" rx="2.5" />
+      <path d="M3.5 10h17M7 14.5h4" />
+    </>
+  ),
+  car: (
+    <>
+      <path d="M4 15v-2.5l2-4.5a1.5 1.5 0 0 1 1.4-1h9.2a1.5 1.5 0 0 1 1.4 1l2 4.5V15" />
+      <path d="M3.5 15h17v3H18v-1.5H6V18H3.5v-3Z" />
+      <circle cx="7.5" cy="15" r="1" fill="currentColor" stroke="none" />
+      <circle cx="16.5" cy="15" r="1" fill="currentColor" stroke="none" />
+    </>
+  ),
+  bag: (
+    <>
+      <path d="M5.5 8h13l-1 11.5H6.5L5.5 8Z" />
+      <path d="M9 8V6.5a3 3 0 0 1 6 0V8" />
+    </>
+  ),
+  search: (
+    <>
+      <circle cx="11" cy="11" r="6" />
+      <path d="m20 20-4.5-4.5" />
+    </>
+  ),
+  train: (
+    <>
+      <rect x="6" y="4" width="12" height="12.5" rx="3" />
+      <path d="M6 10.5h12" />
+      <circle cx="9.5" cy="13.5" r=".7" fill="currentColor" stroke="none" />
+      <circle cx="14.5" cy="13.5" r=".7" fill="currentColor" stroke="none" />
+      <path d="m8.5 17-1.5 3M15.5 17l1.5 3" />
+    </>
+  ),
 }
 
 export const iconNames = Object.keys(paths) as IconName[]

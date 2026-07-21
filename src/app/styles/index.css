@@ -1161,3 +1161,128 @@ button {
 .feed-state .btn {
   color: var(--ink);
 }
+
+/* ---------- essential apps ---------- */
+.app-group {
+  margin-top: 24px;
+}
+
+.app-group-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.app-group-head svg {
+  color: var(--coral-ink);
+}
+
+.app-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.app-card {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  text-decoration: none;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 14px;
+  box-shadow: var(--sh-sm);
+  transition: transform 0.14s ease, box-shadow 0.14s ease;
+}
+
+.app-card:active {
+  transform: scale(0.99);
+  box-shadow: var(--sh-md);
+}
+
+.app-icon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(160deg, #fff, var(--coral-soft));
+  color: var(--coral-ink);
+  box-shadow: var(--sh-sm);
+}
+
+.app-card-body {
+  min-width: 0;
+}
+
+.app-card-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.app-card-head strong {
+  font-size: 15.5px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.app-must {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--teal);
+  background: var(--teal-soft);
+  border-radius: var(--r-pill);
+  padding: 2px 8px;
+}
+
+.app-tagline {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-2);
+  margin-top: 3px;
+}
+
+.app-why {
+  font-size: 12.5px;
+  color: var(--mute);
+  line-height: 1.5;
+  margin-top: 5px;
+}
+
+/* horizontal strip on home */
+.app-strip {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 2px 2px 8px;
+  margin: 0 -2px;
+  scrollbar-width: none;
+}
+
+.app-strip::-webkit-scrollbar {
+  display: none;
+}
+
+.app-card-compact {
+  flex-direction: column;
+  gap: 10px;
+  width: 150px;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+}
+
+.app-card-compact .app-tagline {
+  margin-top: 0;
+}

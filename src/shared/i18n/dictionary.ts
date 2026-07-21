@@ -97,6 +97,12 @@ export const dictionary: Dictionary = {
     'community.retry': 'Try again',
     'community.empty': 'No posts right now — check back soon.',
     'community.comments': '{n} comments',
+
+    'apps.kicker': 'Essential Apps',
+    'apps.title': 'Apps to install first',
+    'apps.lead': 'The apps foreigners in Korea rely on daily. Tap a card to get it.',
+    'apps.homeHeading': 'Must-have apps',
+    'apps.mustHave': 'Must-have',
   },
   ko: {
     'app.name': 'KoreanLife',
@@ -189,5 +195,11 @@ export const dictionary: Dictionary = {
     'community.retry': '다시 시도',
     'community.empty': '지금은 글이 없어요 — 잠시 후 다시 확인하세요.',
     'community.comments': '댓글 {n}',
+
+    'apps.kicker': '필수 앱',
+    'apps.title': '가장 먼저 설치할 앱',
+    'apps.lead': '한국 사는 외국인이 매일 쓰는 앱. 카드를 탭하면 받을 수 있어요.',
+    'apps.homeHeading': '필수 앱',
+    'apps.mustHave': '필수',
   },
 }
