@@ -35,6 +35,8 @@ export const dictionary: Dictionary = {
     'quick.delivery.desc': 'Coupang Eats · Shuttle',
     'quick.reality.title': 'Media vs reality',
     'quick.reality.desc': 'Bullying · dating · money',
+    'quick.apps.title': 'Essential apps',
+    'quick.apps.desc': 'Install these first',
 
     'scam.core': 'core',
     'scam.verdict.idle': 'Check the items that apply to see your risk level.',
@@ -133,6 +135,8 @@ export const dictionary: Dictionary = {
     'quick.delivery.desc': '쿠팡이츠 · Shuttle',
     'quick.reality.title': '미디어 vs 현실',
     'quick.reality.desc': '왕따 · 연애 · 순자산',
+    'quick.apps.title': '필수 앱',
+    'quick.apps.desc': '가장 먼저 설치',
 
     'scam.core': '핵심',
     'scam.verdict.idle': '해당 사항을 체크하면 위험도를 진단합니다.',

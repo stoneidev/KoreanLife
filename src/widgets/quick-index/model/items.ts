@@ -43,4 +43,12 @@ export const quickIndex: QuickItem[] = [
     titleKey: 'quick.reality.title',
     descKey: 'quick.reality.desc',
   },
+  {
+    to: routes.apps,
+    num: '5',
+    icon: 'smartphone',
+    tone: 't-coral',
+    titleKey: 'quick.apps.title',
+    descKey: 'quick.apps.desc',
+  },
 ]
