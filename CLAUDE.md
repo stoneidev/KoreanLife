@@ -49,6 +49,8 @@ npx tsc -b           # 타입체크만
 5. **모든 사용자 노출 문자열은 i18n을 거친다.** 하드코딩 금지. UI 문자열은 `dictionary.ts`, 콘텐츠 데이터는 `Localized`(`{en, ko}`) + `pick()`.
 6. **영어가 기본(EN-first), 한국어는 토글.** 타깃이 외국인이다.
 
+> 아키텍처·구조 상세는 [`docs/architecture.md`](./docs/architecture.md)와 [`docs/structure.md`](./docs/structure.md) 참조. 아래는 요약.
+
 ## 아키텍처 — Feature-Sliced Design (FSD)
 
 ```

@@ -109,3 +109,6 @@ src/
 ```
 
 슬라이스 public API는 각 폴더의 `index.ts`만 사용합니다. 경로 별칭: `@/*` → `src/*`.
+
+자세한 아키텍처·구조는 [`docs/`](./docs)를 참고하세요:
+[architecture](./docs/architecture.md) · [structure](./docs/structure.md).
