@@ -1,15 +1,28 @@
-import { useState } from 'react'
+import { useLayoutEffect, useState } from 'react'
 import { BoardPostCard } from '@/entities/board-post'
 import { getBoardNick, setBoardNick } from '@/shared/config/board'
 import { useI18n } from '@/shared/i18n'
 import { Icon } from '@/shared/ui'
 import { createBoardPost, createBoardReply, useBoardDetail, useBoardList } from '../model/useBoardFeed'
 
-export function BoardFeed() {
+type BoardFeedProps = {
+  onDepthChange?: (deep: boolean) => void
+}
+
+export function BoardFeed({ onDepthChange }: BoardFeedProps) {
   const { t, lang } = useI18n()
   const list = useBoardList()
   const [selectedId, setSelectedId] = useState<string | null>(null)
   const [composing, setComposing] = useState(false)
+
+  // Before paint so the parent can hide the Board/Reddit switch with the back row.
+  useLayoutEffect(() => {
+    onDepthChange?.(Boolean(selectedId || composing))
+  }, [selectedId, composing, onDepthChange])
+
+  useLayoutEffect(() => {
+    return () => onDepthChange?.(false)
+  }, [onDepthChange])
 
   if (selectedId) {
     return <BoardDetail postId={selectedId} onBack={() => setSelectedId(null)} />
@@ -59,14 +72,21 @@ export function BoardFeed() {
   return (
     <div className="board-panel">
       <div className="board-toolbar">
-        <p className="mute">{t('board.hint')}</p>
+        <div className="board-toolbar-copy">
+          <strong>{t('board.toolbarTitle')}</strong>
+          <p>{t('board.hint')}</p>
+        </div>
         <button type="button" className="btn btn-fill btn-sm" onClick={() => setComposing(true)}>
           {t('board.newPost')}
         </button>
       </div>
       {list.posts.length === 0 ? (
-        <div className="feed-state">
+        <div className="feed-state board-empty">
+          <Icon name="chat" size={28} />
           <p>{t('board.empty')}</p>
+          <button type="button" className="btn btn-line btn-sm" onClick={() => setComposing(true)}>
+            {t('board.newPost')}
+          </button>
         </div>
       ) : (
         <div className="feed-list">
@@ -113,8 +133,11 @@ function BoardComposer({
 
   return (
     <div className="board-form">
-      <button type="button" className="back board-back" onClick={onCancel}>
-        <Icon name="arrow-left" size={14} /> {t('board.back')}
+      <button type="button" className="back" onClick={onCancel}>
+        <span className="back-icon">
+          <Icon name="arrow-left" size={16} />
+        </span>
+        {t('board.tabBoard')}
       </button>
       <h3 className="board-form-title">{t('board.newPost')}</h3>
       <label className="board-field">
@@ -189,8 +212,11 @@ function BoardDetail({ postId, onBack }: { postId: string; onBack: () => void })
     return (
       <div className="feed-state" role="alert">
         <p>{t('board.error')}</p>
-        <button type="button" className="btn btn-line btn-sm" onClick={onBack}>
-          {t('board.back')}
+        <button type="button" className="back" onClick={onBack}>
+          <span className="back-icon">
+            <Icon name="arrow-left" size={16} />
+          </span>
+          {t('board.tabBoard')}
         </button>
       </div>
     )
@@ -200,8 +226,11 @@ function BoardDetail({ postId, onBack }: { postId: string; onBack: () => void })
 
   return (
     <div className="board-detail">
-      <button type="button" className="back board-back" onClick={onBack}>
-        <Icon name="arrow-left" size={14} /> {t('board.back')}
+      <button type="button" className="back" onClick={onBack}>
+        <span className="back-icon">
+          <Icon name="arrow-left" size={16} />
+        </span>
+        {t('board.tabBoard')}
       </button>
       <article className="board-detail-post">
         <p className="mono">{post.authorName}</p>

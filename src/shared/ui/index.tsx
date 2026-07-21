@@ -33,7 +33,10 @@ export function PageHead({ kicker, title, lead, backTo, backLabel = 'Back' }: Pa
     <div className="page-head">
       {backTo ? (
         <Link to={backTo} className="back">
-          <Icon name="arrow-left" size={16} /> {backLabel}
+          <span className="back-icon">
+            <Icon name="arrow-left" size={16} />
+          </span>
+          {backLabel}
         </Link>
       ) : null}
       <p className="kicker">{kicker}</p>

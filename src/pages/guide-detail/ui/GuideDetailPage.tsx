@@ -14,7 +14,10 @@ export function GuideDetailPage() {
       <Screen padded>
         <p className="mute">{t('guide.notFound')}</p>
         <Link to={routes.guides} className="back">
-          <Icon name="arrow-left" size={16} /> {t('nav.guides')}
+          <span className="back-icon">
+            <Icon name="arrow-left" size={16} />
+          </span>
+          {t('nav.guides')}
         </Link>
       </Screen>
     )
@@ -24,7 +27,10 @@ export function GuideDetailPage() {
     <Screen>
       <div className="page-head">
         <Link to={routes.guides} className="back">
-          <Icon name="arrow-left" size={16} /> {t('nav.guides')}
+          <span className="back-icon">
+            <Icon name="arrow-left" size={16} />
+          </span>
+          {t('nav.guides')}
         </Link>
         <p className="kicker">{pick(guide.category, lang)}</p>
         <h1>{pick(guide.title, lang)}</h1>

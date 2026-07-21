@@ -827,12 +827,39 @@ button {
 .back {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  font-size: 13px;
+  gap: 8px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  font-size: 14px;
   font-weight: 700;
+  letter-spacing: -0.01em;
   text-decoration: none;
-  color: var(--mute);
-  margin-bottom: 12px;
+  color: var(--ink-2);
+  margin-bottom: 14px;
+  cursor: pointer;
+}
+
+.back:hover {
+  color: var(--ink);
+}
+
+button.back {
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.back-icon {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--card);
+  border: 1px solid var(--line-2);
+  box-shadow: var(--sh-sm);
+  color: var(--ink);
 }
 
 /* ---------- guide detail ---------- */
@@ -1334,22 +1361,146 @@ button {
   margin-top: 14px;
 }
 
-/* ---------- board ---------- */
-.community-tabs {
-  margin-bottom: 14px;
+/* ---------- board / community switch ---------- */
+.community-switch {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  padding: 4px;
+  margin: 2px 0 16px;
+  background: var(--card);
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-sm);
+}
+
+.community-switch-thumb {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 4px;
+  width: calc(50% - 4px);
+  border-radius: calc(var(--r-lg) - 4px);
+  background: var(--coral-soft);
+  box-shadow: inset 0 0 0 1px rgba(255, 77, 103, 0.18);
+  transition: transform 0.22s cubic-bezier(0.22, 0.85, 0.24, 1);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.community-switch[data-active='reddit'] .community-switch-thumb {
+  transform: translateX(100%);
+}
+
+.community-switch-tab {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  background: transparent;
+  padding: 12px 12px;
+  border-radius: calc(var(--r-lg) - 4px);
+  cursor: pointer;
+  text-align: left;
+  color: var(--mute);
+  transition: color 0.15s ease;
+}
+
+.community-switch-tab.on {
+  color: var(--coral-ink);
+}
+
+.community-switch-icon {
+  width: 36px;
+  height: 36px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--bg);
+  color: inherit;
+}
+
+.community-switch-tab.on .community-switch-icon {
+  background: #fff;
+  color: var(--coral);
+  box-shadow: var(--sh-sm);
+}
+
+.community-switch-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.community-switch-copy strong {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: inherit;
+}
+
+.community-switch-copy span {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--mute);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.community-switch-tab.on .community-switch-copy span {
+  color: rgba(214, 31, 67, 0.72);
+}
+
+.community-pane {
+  animation: rise 0.28s cubic-bezier(0.22, 0.85, 0.24, 1) both;
 }
 
 .board-toolbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 12px;
+  gap: 14px;
+  margin-bottom: 14px;
+  padding: 14px 16px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  box-shadow: var(--sh-sm);
 }
 
-.board-toolbar .mute {
+.board-toolbar-copy {
   flex: 1;
+  min-width: 0;
+}
+
+.board-toolbar-copy strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.board-toolbar-copy p {
+  margin-top: 3px;
   font-size: 12.5px;
+  color: var(--mute);
+  line-height: 1.4;
+}
+
+.board-empty {
+  gap: 10px;
+  color: var(--mute);
+}
+
+.board-empty svg {
+  color: var(--coral);
+  opacity: 0.85;
 }
 
 .board-post-card {
@@ -1357,19 +1508,6 @@ button {
   text-align: left;
   cursor: pointer;
   font: inherit;
-  color: inherit;
-  background: var(--card, #fff);
-}
-
-.board-post-card .post-excerpt {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.board-back {
-  margin-bottom: 12px;
 }
 
 .board-form-title {
