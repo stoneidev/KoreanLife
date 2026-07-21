@@ -89,4 +89,36 @@ export const realityChecks: RealityCheck[] = [
       ko: '"Is crossed arms considered rude in Korea?" (22 댓글)',
     },
   },
+  {
+    id: 'gyopo',
+    topic: { en: 'Gyopo (overseas Korean) identity', ko: '교포 정체성' },
+    drama: {
+      en: 'Gyopos are flashy, out of touch, and either over- or under-praise Korea',
+      ko: '교포는 과시적이고 감각이 뒤처지며 한국을 과대·과소 평가한다는 인식',
+    },
+    real: {
+      en: 'It’s a wide spectrum; most just navigate two cultures. Age/hierarchy norms trip people up more than "attitude"',
+      ko: '스펙트럼이 넓고 대부분은 두 문화를 오갈 뿐. "태도"보다 나이·위계 규범에서 더 헷갈림',
+    },
+    source: {
+      en: '“Current stereotypes of gyopos from the US?” (51 replies)',
+      ko: '"Current stereotypes of gyopos from the US?" (51 댓글)',
+    },
+  },
+  {
+    id: 'korea-japan',
+    topic: { en: 'Korea–Japan relations', ko: '한일 관계' },
+    drama: {
+      en: 'Koreans and Japanese hate each other and it dominates daily life',
+      ko: '한국인과 일본인은 서로 증오하며 일상을 지배한다',
+    },
+    real: {
+      en: 'History issues (colonial era, "comfort women") remain unresolved and politically charged, but travel, pop culture and everyday exchange are heavy and mostly friendly',
+      ko: '역사 문제(식민지·위안부)는 미해결이고 정치적으로 민감하지만, 여행·대중문화·일상 교류는 활발하고 대체로 우호적',
+    },
+    source: {
+      en: '“How is the relationship between Korea and Japan?” (86 replies)',
+      ko: '"How is the relationship between Korea and Japan?" (86 댓글)',
+    },
+  },
 ]

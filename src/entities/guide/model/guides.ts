@@ -278,6 +278,211 @@ export const guides: Guide[] = [
       },
     ],
   },
+  {
+    id: 'dating-ldr',
+    code: '07',
+    icon: '💗',
+    category: { en: 'Dating & Relationships', ko: '연애·관계' },
+    title: { en: 'Dating & long-distance, realistically', ko: '연애·장거리, 현실적으로' },
+    summary: {
+      en: 'Read soft rejection, set an LDR plan, and spot romance scams',
+      ko: '소프트 거절 해석, LDR 계획, 연애 사기 구분',
+    },
+    pain: {
+      en: 'LDR after an exchange year, sudden ghosting, and "is this a green-card scam?" doubts',
+      ko: '교환학생 후 장거리, 갑작스러운 고스트링, "그린카드 사기 아닌가" 의심',
+    },
+    steps: [
+      {
+        en: 'Going quiet after a few days is usually a soft rejection, not an emergency — don’t over-read it',
+        ko: '며칠 만에 연락이 뜸해지는 건 대개 소프트 거절 — 과잉 해석하지 않기',
+      },
+      {
+        en: 'For LDR, agree on a concrete "close-the-gap" date and visa path early, not "someday"',
+        ko: '장거리는 "언젠가"가 아니라 구체적 합가 시점·비자 경로를 초반에 합의',
+      },
+      {
+        en: 'Scam signals: fast declarations of love, money/gift-card requests, refusing video calls',
+        ko: '사기 신호: 초고속 사랑 고백, 돈·상품권 요구, 영상통화 거부',
+      },
+      {
+        en: 'Never send money or your ARC/passport scans to someone you haven’t met in person',
+        ko: '직접 만난 적 없는 상대에게 돈·외국인등록증·여권 스캔 절대 전송 금지',
+      },
+    ],
+    dos: [
+      { en: 'Keep first meetings in public and tell a friend', ko: '첫 만남은 공공장소에서, 지인에게 공유' },
+      { en: 'Talk about family expectations early — they matter here', ko: '가족의 기대치를 초반에 대화 — 한국에선 중요' },
+    ],
+    donts: [
+      { en: 'Send money for "flights/emergencies" to someone online', ko: '온라인 상대에게 "항공권·급전" 송금' },
+      { en: 'Assume K-drama pacing is real life', ko: 'K드라마식 전개를 현실로 가정하기' },
+    ],
+  },
+  {
+    id: 'jobs-visa',
+    code: '08',
+    icon: '🛂',
+    category: { en: 'Jobs & Visa', ko: '취업·비자' },
+    title: { en: 'Working in Korea & visa basics', ko: '한국 취업과 비자 기본기' },
+    summary: {
+      en: 'What’s realistic without fluent Korean, and which visa fits',
+      ko: '한국어 없이 현실적인 선택지와 맞는 비자',
+    },
+    pain: {
+      en: 'Little info, "fluent Korean or bust", and TEFL limited to native English speakers',
+      ko: '정보 부족, 한국어 유창 필수, TEFL은 영어권만 — 반복 질문',
+    },
+    steps: [
+      {
+        en: 'Most office jobs expect business-level Korean; English-only roles cluster in IT, global firms and teaching',
+        ko: '대부분 사무직은 비즈니스 한국어 요구. 영어만으로는 IT·외국계·강사에 집중',
+      },
+      {
+        en: 'E-2 (teaching) generally needs a passport from a designated English-speaking country + a degree',
+        ko: 'E-2(강사)는 보통 지정 영어권 국적 여권 + 학위 필요',
+      },
+      {
+        en: 'D-10 (job-seeker) lets you stay and look; E-7 is employer-sponsored skilled work',
+        ko: 'D-10(구직)으로 체류하며 구직 가능, E-7은 고용주 스폰서 전문직',
+      },
+      {
+        en: 'A degree from a Korean university + some Korean dramatically widens your options',
+        ko: '한국 대학 학위 + 어느 정도의 한국어가 선택지를 크게 넓힘',
+      },
+    ],
+    dos: [
+      { en: 'Verify visa rules on the official Hi Korea portal', ko: '하이코리아 공식 포털에서 비자 규정 확인' },
+      { en: 'Build Korean to TOPIK 3–4 to unlock roles', ko: '한국어 TOPIK 3~4까지 올려 선택지 확보' },
+    ],
+    donts: [
+      { en: 'Expect special hiring quotas for your nationality', ko: '국적 이유의 특별 채용 쿼터 기대' },
+      { en: 'Work on the wrong visa — it risks a ban', ko: '체류자격 외 취업 — 입국 금지 위험' },
+    ],
+  },
+  {
+    id: 'military-enlistment',
+    code: '09',
+    icon: '🎖️',
+    category: { en: 'Family & Military', ko: '가족·군복무' },
+    title: { en: 'Enlistment: what changes for dual citizens', ko: '군 복무: 이중국적자에게 달라지는 것' },
+    summary: {
+      en: 'How service affects jobs, housing and income — and the timeline',
+      ko: '복무가 직장·주거·수입에 미치는 영향과 일정',
+    },
+    pain: {
+      en: 'Enlistment cuts off job/housing/income; dual-national obligations are confusing',
+      ko: '복무 중 직장·주거·수입 단절, 이중국적 의무 혼란',
+    },
+    steps: [
+      {
+        en: 'Dual citizens generally must resolve their status before a cutoff age — check the MMA rules early',
+        ko: '이중국적자는 정해진 나이 전에 국적을 정리해야 하는 경우가 많음 — 병무청 규정을 일찍 확인',
+      },
+      {
+        en: 'Service is ~18 months; plan a housing/lease pause and income gap around it',
+        ko: '복무는 약 18개월 — 주거·임대 중단과 수입 공백을 미리 계획',
+      },
+      {
+        en: 'Employers must reinstate; keep documentation of your leave for return',
+        ko: '고용주는 복직 의무 — 복귀 위해 휴직 서류 보관',
+      },
+      {
+        en: 'Overseas Koreans: confirm how visits and residence affect your obligation',
+        ko: '재외국민: 방문·체류가 병역 의무에 어떻게 영향을 주는지 확인',
+      },
+    ],
+    dos: [
+      { en: 'Get written confirmation from the MMA (병무청) for your case', ko: '본인 사례에 대해 병무청의 서면 확인 받기' },
+      { en: 'Sort finances/lease before your enlistment date', ko: '입영일 전 재정·임대 정리' },
+    ],
+    donts: [
+      { en: 'Rely on hearsay about dual-national rules', ko: '이중국적 규정을 소문에 의존' },
+      { en: 'Miss the age deadline for choosing nationality', ko: '국적 선택 연령 기한 놓치기' },
+    ],
+  },
+  {
+    id: 'disability-access',
+    code: '10',
+    icon: '♿',
+    category: { en: 'Health & Access', ko: '건강·접근성' },
+    title: { en: 'Disability & accessibility in Korea', ko: '한국의 장애·접근성' },
+    summary: {
+      en: 'What to expect for mobility, autism and care — and how to prepare',
+      ko: '이동·자폐·돌봄에서 기대할 것과 준비 방법',
+    },
+    pain: {
+      en: 'Stigma around autism/disability, worry about stares when traveling with a disabled child',
+      ko: '자폐·장애 스티그마, 장애 아동 동반 여행 시선 걱정',
+    },
+    steps: [
+      {
+        en: 'Subways and major venues have elevators/ramps; older streets and small shops can be harder',
+        ko: '지하철·주요 시설은 엘리베이터·경사로 있음. 오래된 골목·소형 상점은 더 어려움',
+      },
+      {
+        en: 'Big hospitals have English-speaking international clinics; book ahead for accessibility needs',
+        ko: '대형 병원엔 영어 가능한 국제진료센터가 있음. 접근성 필요 시 사전 예약',
+      },
+      {
+        en: 'Awareness of autism is growing but uneven — carry a short explanation card if helpful',
+        ko: '자폐 인식은 커지고 있으나 편차 큼 — 필요하면 간단한 설명 카드 지참',
+      },
+      {
+        en: 'Use the "Seoul Danurim" accessibility guide for barrier-free routes and facilities',
+        ko: '"서울 다누림" 접근성 안내로 무장애 동선·시설 확인',
+      },
+    ],
+    dos: [
+      { en: 'Call venues ahead to confirm step-free access', ko: '시설에 미리 전화해 무단차 접근 확인' },
+      { en: 'Keep medication with its prescription/English name', ko: '약은 처방전·영문명과 함께 소지' },
+    ],
+    donts: [
+      { en: 'Assume every small clinic can accommodate needs', ko: '모든 소형 클리닉이 수용 가능하다고 가정' },
+      { en: 'Let stares deter you — they usually mean curiosity, not hostility', ko: '시선에 위축되기 — 대개 적대가 아닌 호기심' },
+    ],
+  },
+  {
+    id: 'digital-life',
+    code: '11',
+    icon: '📱',
+    category: { en: 'Digital Life', ko: '디지털 생활' },
+    title: { en: 'KakaoTalk, Naver & staying scam-safe', ko: '카카오톡·네이버, 그리고 사기 예방' },
+    summary: {
+      en: 'Set up the essential apps and lock down privacy & fraud risks',
+      ko: '필수 앱 세팅과 프라이버시·사기 위험 차단',
+    },
+    pain: {
+      en: 'Kakao profile/privacy worries, permanent Naver bans, spam and phishing',
+      ko: '카카오 프로필·프라이버시 걱정, 네이버 영구정지, 스팸·피싱',
+    },
+    steps: [
+      {
+        en: 'KakaoTalk is essential; lock down who can find you by phone/ID in privacy settings',
+        ko: '카카오톡은 필수 — 개인정보 설정에서 전화번호·ID 검색 허용 범위 제한',
+      },
+      {
+        en: 'Naver often needs ID verification; a foreigner account can be limited — keep a backup email',
+        ko: '네이버는 본인인증 요구가 많고 외국인 계정은 제한될 수 있음 — 백업 이메일 유지',
+      },
+      {
+        en: 'Common scams: fake delivery/toll texts with links, "prosecutor" calls, romance transfers',
+        ko: '흔한 사기: 가짜 택배·통행료 문자 링크, "검찰" 사칭 전화, 연애 송금',
+      },
+      {
+        en: 'Never tap links in unexpected texts; report spam to 118 (KISA)',
+        ko: '예상치 못한 문자의 링크 절대 클릭 금지, 스팸은 118(KISA)에 신고',
+      },
+    ],
+    dos: [
+      { en: 'Enable app lock + 2FA on Kakao and banking', ko: '카카오·뱅킹에 앱 잠금 + 2단계 인증' },
+      { en: 'Verify a caller by hanging up and calling the official number', ko: '전화는 끊고 공식 번호로 되걸어 확인' },
+    ],
+    donts: [
+      { en: 'Install APKs sent by strangers ("delivery app")', ko: '낯선 사람이 보낸 APK("배달앱") 설치' },
+      { en: 'Share verification codes with anyone', ko: '인증번호를 누구에게도 공유' },
+    ],
+  },
 ]
 
 export function getGuideById(id: string) {

@@ -43,12 +43,43 @@ npm run build    # 프로덕션 빌드 + 서비스 워커 생성
 npm run preview  # 빌드 결과 확인 (PWA 설치 테스트는 여기서)
 ```
 
+## 테스트 (TDD)
+
+```bash
+npm test          # vitest 1회 실행
+npm run test:watch
+```
+
+- 모든 도메인 로직·i18n·상호작용 컴포넌트는 테스트 우선(TDD)으로 작성
+- vitest + @testing-library/react + jsdom
+- 신규 pain point는 `coverage.test.ts`가 존재 여부를 보증
+
+## 다국어 (EN 우선 + KO 토글)
+
+- 타깃이 외국인이므로 **영어가 기본**, 상단 🌐 토글로 한국어 전환 (localStorage 유지)
+- UI 문자열: `shared/i18n/dictionary.ts` (dot-namespaced 키)
+- 콘텐츠(가이드·문장·리얼체크): 각 데이터에 `{ en, ko }` 병기 (`Localized`), `pick()`으로 선택
+
+## 디자인 시스템
+
+- 벤치마크: **Airbnb / Klook** — 따뜻한 오프화이트, 라운드 카드, 소프트 섀도,
+  pill 버튼·칩, 사진/이모지 커버 타일, 코랄·틸·골드 팔레트
+- Pretendard + Noto Sans KR
+- 외부 UI 라이브러리 없음 — 커스텀 CSS (`src/app/styles/index.css`)
+
+## 커버리지 (11개 가이드 + 7개 리얼체크)
+
+정착 초기 실무(예약·배달·주거·예의·직장·친구)에 더해 리포트 상위 pain point 확장:
+
+- 연애·장거리(LDR)·연애 사기 · 취업·비자·이민 · 군 복무(이중국적)
+- 장애·접근성 · 디지털 생활(카카오·네이버·피싱)
+- 교포 정체성 · 한일 관계 (리얼체크)
+
 ## 기술 스택
 
 - Vite + React 19 + TypeScript
 - react-router-dom (화면 라우팅)
 - vite-plugin-pwa (manifest + Workbox 서비스 워커, autoUpdate)
-- 외부 UI 라이브러리 없음 — 커스텀 디자인 시스템 (`src/index.css`)
 
 ## 구조 (Feature-Sliced Design)
 
@@ -59,9 +90,7 @@ src/
   widgets/       # 독립 UI 블록 (bottom-nav, home-hero, quick-index…)
   features/      # 사용자 액션 (문장 복사/TTS, 사기 진단, 카테고리 필터)
   entities/      # 도메인 모델 (guide, phrase, reality-check, scam-check)
-  shared/        # 공용 UI·라우트 상수
+  shared/        # 공용 UI·i18n·라우트 상수
 ```
 
 슬라이스 public API는 각 폴더의 `index.ts`만 사용합니다. 경로 별칭: `@/*` → `src/*`.
-
-## 기술 스택
