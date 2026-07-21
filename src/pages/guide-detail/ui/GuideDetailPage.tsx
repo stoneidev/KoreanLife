@@ -1,18 +1,20 @@
 import { Link, useParams } from 'react-router-dom'
 import { getGuideById, GuideDetailBody } from '@/entities/guide'
 import { routes } from '@/shared/config/routes'
+import { pick, useI18n } from '@/shared/i18n'
 import { Screen } from '@/shared/ui'
 
 export function GuideDetailPage() {
+  const { t, lang } = useI18n()
   const { id } = useParams()
   const guide = id ? getGuideById(id) : undefined
 
   if (!guide) {
     return (
       <Screen padded>
-        <p className="mute">가이드를 찾을 수 없어요.</p>
+        <p className="mute">{t('guide.notFound')}</p>
         <Link to={routes.guides} className="back">
-          ← Guides
+          ← {t('nav.guides')}
         </Link>
       </Screen>
     )
@@ -22,17 +24,17 @@ export function GuideDetailPage() {
     <Screen>
       <div className="page-head">
         <Link to={routes.guides} className="back">
-          ← Guides
+          ← {t('nav.guides')}
         </Link>
-        <p className="kicker">{guide.category}</p>
-        <h1>{guide.title}</h1>
+        <p className="kicker">{pick(guide.category, lang)}</p>
+        <h1>{pick(guide.title, lang)}</h1>
       </div>
 
       <GuideDetailBody guide={guide} />
 
       <section className="block" style={{ paddingBottom: 24 }}>
-        <Link to={routes.phrases} className="btn btn-ink btn-block">
-          이 상황에 쓸 문장 시트 →
+        <Link to={routes.phrases} className="btn btn-primary btn-block">
+          {t('guide.toPhrases')} →
         </Link>
       </section>
     </Screen>

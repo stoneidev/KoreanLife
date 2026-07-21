@@ -1,3 +1,4 @@
+import { pick, useI18n } from '@/shared/i18n'
 import type { RealityCheck } from '../model/reality-checks'
 
 type RealityCardProps = {
@@ -5,22 +6,24 @@ type RealityCardProps = {
 }
 
 export function RealityCard({ item }: RealityCardProps) {
+  const { t, lang } = useI18n()
+
   return (
     <article className="reality-card">
-      <h3>{item.topic}</h3>
+      <h3>{pick(item.topic, lang)}</h3>
       <div className="split">
         <div className="drama">
-          <span className="lbl">🎬 On screen</span>
-          {item.drama}
+          <span className="lbl">🎬 {t('reality.onScreen')}</span>
+          {pick(item.drama, lang)}
         </div>
         <div className="real">
-          <span className="lbl">✓ Reality</span>
-          {item.real}
+          <span className="lbl">✓ {t('reality.reality')}</span>
+          {pick(item.real, lang)}
         </div>
       </div>
       <p className="reality-source">
         <span aria-hidden>📌</span>
-        {item.source}
+        {pick(item.source, lang)}
       </p>
     </article>
   )

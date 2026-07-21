@@ -1,22 +1,23 @@
 import { Link } from 'react-router-dom'
 import { routes } from '@/shared/config/routes'
+import { useI18n } from '@/shared/i18n'
 import { BlockHead } from '@/shared/ui'
 
 export function CommunityNote() {
+  const { t } = useI18n()
+
   return (
     <section className="block" style={{ paddingBottom: 24 }}>
-      <BlockHead title="이번 주 질문" meta="98 replies" />
+      <BlockHead title={t('community.heading')} />
       <div className="community-note">
         <span className="source-tag">
           <span aria-hidden>💬</span> r/AskAKorean
         </span>
-        <h3>외국인이 하지 않았으면 하는 것 1순위는?</h3>
-        <p className="mute">
-          한국인 답변 압도적 1위는 대중교통에서의 큰 소리. 에티켓 가이드에서 전체 요약을 확인하세요.
-        </p>
+        <h3>{t('community.question')}</h3>
+        <p className="mute">{t('community.answer')}</p>
         <div style={{ marginTop: 14 }}>
           <Link to={routes.guideDetail('etiquette-transit')} className="btn btn-line btn-sm">
-            요약 보기 →
+            {t('community.cta')} →
           </Link>
         </div>
       </div>

@@ -2,25 +2,30 @@ import { useState } from 'react'
 import { getPhraseSetById, phraseSets } from '@/entities/phrase'
 import { FilterBar } from '@/features/filter-by-category'
 import { PhraseSheet } from '@/features/use-phrase-sheet'
+import { pick, useI18n } from '@/shared/i18n'
 import { PageHead, Screen, Tip } from '@/shared/ui'
 
 export function PhrasesPage() {
+  const { t, lang } = useI18n()
   const [setId, setSetId] = useState(phraseSets[0].id)
   const current = getPhraseSetById(setId)!
+
+  const options = phraseSets.map((s) => `${s.emoji} ${pick(s.label, lang)}`)
+  const currentOption = `${current.emoji} ${pick(current.label, lang)}`
 
   return (
     <Screen>
       <PageHead
-        kicker="Phrase Sheets"
-        title="상황별 문장 시트"
-        lead="전화·채팅·대면에서 그대로 복사하거나 재생해서 보여주세요."
+        kicker={t('phrases.kicker')}
+        title={t('phrases.title')}
+        lead={t('phrases.lead')}
       />
       <div className="screen-pad">
         <FilterBar
-          options={phraseSets.map((s) => s.label)}
-          value={current.label}
-          onChange={(label) => {
-            const next = phraseSets.find((s) => s.label === label)
+          options={options}
+          value={currentOption}
+          onChange={(option) => {
+            const next = phraseSets.find((s) => `${s.emoji} ${pick(s.label, lang)}` === option)
             if (next) setSetId(next.id)
           }}
         />
@@ -29,10 +34,7 @@ export function PhrasesPage() {
           <PhraseSheet key={p.ko} phrase={p} />
         ))}
 
-        <Tip>
-          전화가 두렵다면 첫 문장은 항상 &ldquo;한국어가 서툴러서 천천히 말씀해 주세요&rdquo;로
-          시작하세요. 상대의 말 속도가 확 달라집니다.
-        </Tip>
+        <Tip>{t('phrases.tip')}</Tip>
       </div>
     </Screen>
   )

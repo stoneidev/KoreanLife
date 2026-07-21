@@ -1,8 +1,10 @@
 import { useMemo, useState } from 'react'
 import { scamChecklist } from '@/entities/scam-check'
+import { pick, useI18n } from '@/shared/i18n'
 import { getScamVerdict, scoreScamChecks } from '../model/verdict'
 
 export function ScamDiagnoser() {
+  const { t, lang } = useI18n()
   const [checked, setChecked] = useState<Set<string>>(new Set())
 
   const toggle = (id: string) => {
@@ -21,6 +23,7 @@ export function ScamDiagnoser() {
 
   const score = useMemo(() => scoreScamChecks(checked, weights), [checked, weights])
   const verdict = getScamVerdict(score)
+  const verdictLabel = t(`scam.verdict.${verdict.level}`, { score })
 
   return (
     <>
@@ -33,22 +36,29 @@ export function ScamDiagnoser() {
               className={`check-row ${on ? 'on' : ''}`}
               onClick={() => toggle(item.id)}
               onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') toggle(item.id)
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault()
+                  toggle(item.id)
+                }
               }}
               role="checkbox"
               aria-checked={on}
               tabIndex={0}
             >
-              <div className="box">{on ? '✓' : ''}</div>
+              <div className="box" aria-hidden>
+                {on ? '✓' : ''}
+              </div>
               <p>
-                {item.text}
-                {item.weight === 3 ? <span className="core-mark">핵심</span> : null}
+                {pick(item.text, lang)}
+                {item.weight === 3 ? <span className="core-mark">{t('scam.core')}</span> : null}
               </p>
             </div>
           )
         })}
       </div>
-      <div className={`verdict ${verdict.cls}`}>{verdict.label}</div>
+      <div className={`verdict ${verdict.cls}`} role="status">
+        {verdictLabel}
+      </div>
     </>
   )
 }

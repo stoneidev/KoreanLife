@@ -1,3 +1,5 @@
+import type { Localized } from '@/shared/i18n'
+
 export type Phrase = {
   ko: string
   roman: string
@@ -6,14 +8,16 @@ export type Phrase = {
 
 export type PhraseSet = {
   id: string
-  label: string
+  label: Localized
+  emoji: string
   phrases: Phrase[]
 }
 
 export const phraseSets: PhraseSet[] = [
   {
     id: 'hospital',
-    label: '병원',
+    label: { en: 'Clinic', ko: '병원' },
+    emoji: '🏥',
     phrases: [
       {
         ko: '안녕하세요, 진료 예약하고 싶어요. 한국어가 서툴러서 천천히 말씀해 주세요.',
@@ -34,7 +38,8 @@ export const phraseSets: PhraseSet[] = [
   },
   {
     id: 'salon',
-    label: '미용실',
+    label: { en: 'Salon', ko: '미용실' },
+    emoji: '💇',
     phrases: [
       {
         ko: '오늘 오후에 커트 예약 가능할까요?',
@@ -50,7 +55,8 @@ export const phraseSets: PhraseSet[] = [
   },
   {
     id: 'delivery',
-    label: '배달',
+    label: { en: 'Delivery', ko: '배달' },
+    emoji: '🛵',
     phrases: [
       {
         ko: '문 앞에 놓아 주시고 벨은 누르지 말아 주세요.',
@@ -66,7 +72,8 @@ export const phraseSets: PhraseSet[] = [
   },
   {
     id: 'housing',
-    label: '부동산',
+    label: { en: 'Housing', ko: '부동산' },
+    emoji: '🏠',
     phrases: [
       {
         ko: '계약서 쓰기 전에는 보증금을 보낼 수 없어요.',

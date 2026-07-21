@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import type { Phrase } from '@/entities/phrase'
+import { useI18n } from '@/shared/i18n'
 import { Toast } from '@/shared/ui'
 import { copyText, speakKorean } from '../lib/phrase-actions'
 
@@ -8,14 +9,15 @@ type PhraseSheetProps = {
 }
 
 export function PhraseSheet({ phrase }: PhraseSheetProps) {
+  const { t } = useI18n()
   const [toast, setToast] = useState<string | null>(null)
 
   const copy = async () => {
     try {
       await copyText(phrase.ko)
-      setToast('복사됨 — 채팅창에 붙여넣으세요')
+      setToast(t('phrases.copied'))
     } catch {
-      setToast('복사 실패')
+      setToast(t('phrases.copyFailed'))
     }
     setTimeout(() => setToast(null), 1800)
   }
@@ -28,10 +30,10 @@ export function PhraseSheet({ phrase }: PhraseSheetProps) {
         <p className="en">{phrase.en}</p>
         <div className="actions">
           <button type="button" onClick={copy}>
-            📋 복사
+            📋 {t('phrases.copy')}
           </button>
           <button type="button" onClick={() => speakKorean(phrase.ko)}>
-            🔊 듣기
+            🔊 {t('phrases.listen')}
           </button>
         </div>
       </article>

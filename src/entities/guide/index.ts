@@ -1,5 +1,6 @@
 export {
   guides,
+  ALL_CATEGORY,
   getGuideById,
   getGuideCategories,
   filterGuidesByCategory,

@@ -34,6 +34,59 @@ export const dictionary: Dictionary = {
     'quick.delivery.desc': 'Coupang Eats · Shuttle',
     'quick.reality.title': 'Media vs reality',
     'quick.reality.desc': 'Bullying · dating · money',
+
+    'scam.core': 'core',
+    'scam.verdict.idle': 'Check the items that apply to see your risk level.',
+    'scam.verdict.caution': 'Caution ({score} pts) — always verify the contract and registry.',
+    'scam.verdict.warning': 'Warning signs ({score} pts) — hold the transfer and re-verify the listing.',
+    'scam.verdict.danger': 'Strong scam pattern ({score} pts) — never transfer money.',
+
+    'phrases.kicker': 'Phrase Sheets',
+    'phrases.title': 'Say it right, situation by situation',
+    'phrases.lead': 'Copy or play these on a call, in chat, or in person.',
+    'phrases.copy': 'Copy',
+    'phrases.listen': 'Listen',
+    'phrases.copied': 'Copied — paste it into the chat',
+    'phrases.copyFailed': 'Copy failed',
+    'phrases.tip':
+      'Nervous about calling? Always open with “My Korean isn’t fluent, please speak slowly.” It changes how fast people talk to you.',
+
+    'reality.kicker': 'Reality Check',
+    'reality.title': 'Media vs reality',
+    'reality.lead': 'The misconceptions people keep asking about, side by side with the real context.',
+    'reality.onScreen': 'On screen',
+    'reality.reality': 'Reality',
+
+    'common.viewAll': 'See all',
+    'home.popularGuides': 'Popular guides',
+
+    'guides.kicker': 'Guides · Handbook',
+    'guides.title': 'Break-through guides for daily life',
+    'guides.lead': 'The most repeated community questions, turned into step-by-step fixes.',
+
+    'guide.why': 'Why — community signal',
+    'guide.steps': 'Step-by-step',
+    'guide.dosDonts': 'Do / Don’t',
+    'guide.do': 'Do',
+    'guide.dont': 'Don’t',
+    'guide.notFound': 'Guide not found.',
+    'guide.toPhrases': 'Phrases for this situation',
+
+    'safety.kicker': 'Safety · Housing',
+    'safety.title': 'Deposit scam check',
+    'safety.lead': 'Renting a goshiwon or one-room? Tick everything that matches your situation.',
+    'safety.helpTitle': 'If you suspect a scam',
+    'safety.help1.title': 'Police 112 · Interpreter 1345',
+    'safety.help1.desc': 'The Danuri call center interprets in 13 languages',
+    'safety.help2.title': 'Check the registry at iros.go.kr',
+    'safety.help2.desc': 'Confirm the real owner for ₩700 — essential before signing',
+    'safety.fullGuide': 'Full deposit-scam guide',
+
+    'community.heading': 'This week’s question',
+    'community.question': 'What’s the #1 thing you wish foreigners wouldn’t do?',
+    'community.answer':
+      'Koreans’ overwhelming #1 answer: being loud on public transit. See the full summary in the etiquette guide.',
+    'community.cta': 'Read the summary',
   },
   ko: {
     'app.name': 'KoreanLife',
@@ -63,5 +116,58 @@ export const dictionary: Dictionary = {
     'quick.delivery.desc': '쿠팡이츠 · Shuttle',
     'quick.reality.title': '미디어 vs 현실',
     'quick.reality.desc': '왕따 · 연애 · 순자산',
+
+    'scam.core': '핵심',
+    'scam.verdict.idle': '해당 사항을 체크하면 위험도를 진단합니다.',
+    'scam.verdict.caution': '주의 ({score}점) — 계약서·등기부등본을 꼭 확인하세요.',
+    'scam.verdict.warning': '위험 신호 ({score}점) — 송금 보류하고 매물을 재검증하세요.',
+    'scam.verdict.danger': '사기 패턴과 강하게 일치 ({score}점) — 절대 송금하지 마세요.',
+
+    'phrases.kicker': '문장 시트',
+    'phrases.title': '상황별 문장 시트',
+    'phrases.lead': '전화·채팅·대면에서 그대로 복사하거나 재생해서 보여주세요.',
+    'phrases.copy': '복사',
+    'phrases.listen': '듣기',
+    'phrases.copied': '복사됨 — 채팅창에 붙여넣으세요',
+    'phrases.copyFailed': '복사 실패',
+    'phrases.tip':
+      '전화가 두렵다면 첫 문장은 항상 "한국어가 서툴러서 천천히 말씀해 주세요"로 시작하세요. 상대의 말 속도가 확 달라집니다.',
+
+    'reality.kicker': '리얼 체크',
+    'reality.title': '미디어 vs 현실',
+    'reality.lead': '커뮤니티에서 반복 질문된 오해를 실제 맥락과 나란히 놓았습니다.',
+    'reality.onScreen': '미디어',
+    'reality.reality': '현실',
+
+    'common.viewAll': '전체',
+    'home.popularGuides': '인기 가이드',
+
+    'guides.kicker': '가이드 · 핸드북',
+    'guides.title': '생활 돌파 가이드',
+    'guides.lead': '커뮤니티에서 가장 많이 반복된 질문을 단계별 해법으로 정리했습니다.',
+
+    'guide.why': 'Why — 커뮤니티 신호',
+    'guide.steps': '단계별 해법',
+    'guide.dosDonts': 'Do / Don’t',
+    'guide.do': 'Do',
+    'guide.dont': 'Don’t',
+    'guide.notFound': '가이드를 찾을 수 없어요.',
+    'guide.toPhrases': '이 상황에 쓸 문장 시트',
+
+    'safety.kicker': '안전 · 주거',
+    'safety.title': '선입금 사기 진단',
+    'safety.lead': '고시원·원룸 구할 때 지금 상황에 해당하는 항목을 모두 선택하세요.',
+    'safety.helpTitle': '사기 의심될 때',
+    'safety.help1.title': '경찰 112 · 외국인 통역 1345',
+    'safety.help1.desc': '다누리콜센터는 13개 언어 통역 지원',
+    'safety.help2.title': '인터넷등기소에서 등기부등본 열람',
+    'safety.help2.desc': '실소유주 확인 700원 — 계약 전 필수',
+    'safety.fullGuide': '선입금 사기 전체 가이드',
+
+    'community.heading': '이번 주 질문',
+    'community.question': '외국인이 하지 않았으면 하는 것 1순위는?',
+    'community.answer':
+      '한국인 답변 압도적 1위는 대중교통에서의 큰 소리. 에티켓 가이드에서 전체 요약을 확인하세요.',
+    'community.cta': '요약 보기',
   },
 }
