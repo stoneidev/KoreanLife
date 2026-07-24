@@ -22,3 +22,14 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Android / TWA (Bubblewrap)
+.gradle/
+build/
+app/build/
+*.keystore
+*.jks
+*.aab
+*.apk
+*.apk.idsig
+local.properties

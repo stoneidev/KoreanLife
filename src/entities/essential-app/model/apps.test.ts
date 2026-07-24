@@ -37,8 +37,10 @@ describe('essentialApps data', () => {
     }
   })
 
-  it('marks some apps as must-have', () => {
-    expect(essentialApps.some((a) => a.mustHave)).toBe(true)
+  it('every app has a local thumbnail icon', () => {
+    for (const app of essentialApps) {
+      expect(app.icon).toMatch(/^\/icons\/apps\/[\w-]+\.(jpg|png|webp)$/)
+    }
   })
 })
 

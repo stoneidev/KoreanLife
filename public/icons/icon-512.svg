@@ -1,5 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
-  <rect width="512" height="512" fill="#0B1220"/>
-  <rect x="64" y="400" width="384" height="32" fill="#00A84D"/>
-  <text x="72" y="290" fill="#F4F6F8" font-family="Arial Black, Helvetica, sans-serif" font-size="180" font-weight="800">KL</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" fill="#FF4D67"/>
+  <g fill="none" stroke="#FFFFFF" stroke-width="28" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M146 210 C146 168 176 140 214 140 C240 140 258 154 270 176 C282 154 300 140 326 140 C364 140 394 168 394 210 C394 246 372 274 340 302 L270 366 L200 302 C168 274 146 246 146 210 Z"/>
+    <path d="M150 188 C190 148 236 148 270 178 C304 148 350 148 390 188"/>
+  </g>
 </svg>

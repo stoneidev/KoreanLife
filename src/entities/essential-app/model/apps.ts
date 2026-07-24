@@ -11,6 +11,8 @@ export type EssentialApp = {
   id: string
   name: string
   category: string
+  /** Local thumbnail shown in the card icon slot (`/icons/apps/...`). */
+  icon: string
   tagline: Localized
   why: Localized
   url: string
@@ -31,6 +33,7 @@ export const appCategories: AppCategory[] = [
 export const essentialApps: EssentialApp[] = [
   {
     id: 'kakaotalk',
+    icon: '/icons/apps/kakaotalk.jpg',
     name: 'KakaoTalk',
     category: 'messaging',
     mustHave: true,
@@ -43,6 +46,7 @@ export const essentialApps: EssentialApp[] = [
   },
   {
     id: 'naver-map',
+    icon: '/icons/apps/naver-map.jpg',
     name: 'Naver Map',
     category: 'maps',
     mustHave: true,
@@ -55,6 +59,7 @@ export const essentialApps: EssentialApp[] = [
   },
   {
     id: 'kakaomap',
+    icon: '/icons/apps/kakaomap.jpg',
     name: 'KakaoMap',
     category: 'maps',
     tagline: { en: 'Great alternative map', ko: '훌륭한 대체 지도' },
@@ -66,6 +71,7 @@ export const essentialApps: EssentialApp[] = [
   },
   {
     id: 'kakaomobility',
+    icon: '/icons/apps/kakaomobility.jpg',
     name: 'Kakao T',
     category: 'transport',
     mustHave: true,
@@ -78,6 +84,7 @@ export const essentialApps: EssentialApp[] = [
   },
   {
     id: 'naver-pay',
+    icon: '/icons/apps/naver-pay.jpg',
     name: 'Naver Pay',
     category: 'pay',
     tagline: { en: 'Pay online & offline', ko: '온·오프라인 간편결제' },
@@ -89,6 +96,7 @@ export const essentialApps: EssentialApp[] = [
   },
   {
     id: 'toss',
+    icon: '/icons/apps/toss.jpg',
     name: 'Toss',
     category: 'pay',
     mustHave: true,
@@ -101,6 +109,7 @@ export const essentialApps: EssentialApp[] = [
   },
   {
     id: 'coupang',
+    icon: '/icons/apps/coupang.jpg',
     name: 'Coupang',
     category: 'shopping',
     mustHave: true,
@@ -113,6 +122,7 @@ export const essentialApps: EssentialApp[] = [
   },
   {
     id: 'coupang-eats',
+    icon: '/icons/apps/coupang-eats.jpg',
     name: 'Coupang Eats',
     category: 'food',
     mustHave: true,
@@ -125,6 +135,7 @@ export const essentialApps: EssentialApp[] = [
   },
   {
     id: 'baemin',
+    icon: '/icons/apps/baemin.jpg',
     name: 'Baemin',
     category: 'food',
     tagline: { en: 'The biggest delivery app', ko: '배달 1위 앱' },
@@ -136,6 +147,7 @@ export const essentialApps: EssentialApp[] = [
   },
   {
     id: 'papago',
+    icon: '/icons/apps/papago.jpg',
     name: 'Papago',
     category: 'translate',
     mustHave: true,
@@ -148,6 +160,7 @@ export const essentialApps: EssentialApp[] = [
   },
   {
     id: 'naver-app',
+    icon: '/icons/apps/naver-app.jpg',
     name: 'Naver',
     category: 'shopping',
     tagline: { en: 'Search, booking & reviews', ko: '검색·예약·리뷰 포털' },
@@ -159,6 +172,7 @@ export const essentialApps: EssentialApp[] = [
   },
   {
     id: 'tmoney',
+    icon: '/icons/apps/tmoney.jpg',
     name: 'T-money / Tmoney GO',
     category: 'transport',
     tagline: { en: 'Tap for bus & subway', ko: '버스·지하철 교통카드' },

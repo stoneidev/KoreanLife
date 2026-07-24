@@ -1,9 +1,5 @@
 import { pick, useI18n } from '@/shared/i18n'
-import { Icon } from '@/shared/ui'
-import { appCategories } from '../model/apps'
 import type { EssentialApp } from '../model/apps'
-
-const iconByCategory = Object.fromEntries(appCategories.map((c) => [c.id, c.icon]))
 
 type AppCardProps = {
   app: EssentialApp
@@ -13,7 +9,6 @@ type AppCardProps = {
 
 export function AppCard({ app, compact }: AppCardProps) {
   const { t, lang } = useI18n()
-  const icon = iconByCategory[app.category] ?? 'smartphone'
 
   return (
     <a
@@ -23,7 +18,7 @@ export function AppCard({ app, compact }: AppCardProps) {
       rel="noopener noreferrer"
     >
       <span className="app-icon" aria-hidden>
-        <Icon name={icon} size={compact ? 22 : 24} />
+        <img src={app.icon} alt="" width={compact ? 40 : 44} height={compact ? 40 : 44} loading="lazy" />
       </span>
       <div className="app-card-body">
         <div className="app-card-head">
