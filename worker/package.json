@@ -1,0 +1,18 @@
+{
+  "name": "koreanlife-worker",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "dependencies": {
+    "hono": "^4.12.31",
+    "webpush-webcrypto": "^1.0.5"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20260721.1",
+    "typescript": "~6.0.2",
+    "wrangler": "^4.112.0"
+  }
+}

@@ -14,7 +14,7 @@ app.use('*', async (c, next) => {
   const handler = cors({
     origin: (origin) => resolveCorsOrigin(origin, allowed),
     allowMethods: ['GET', 'POST', 'OPTIONS'],
-    allowHeaders: ['Content-Type', 'X-Device-Id'],
+    allowHeaders: ['Content-Type', 'X-Device-Id', 'X-Admin-Key'],
     maxAge: 86400,
   })
   return handler(c, next)

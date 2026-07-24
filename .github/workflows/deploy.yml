@@ -54,7 +54,7 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           # Use repo-installed wrangler (avoids non-interactive npx prompt)
           packageManager: npm
-          command: pages deploy dist --project-name=koreanlife
+          command: pages deploy apps/web/dist --project-name=koreanlife
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 
   deploy-worker:

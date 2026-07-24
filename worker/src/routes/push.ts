@@ -54,3 +54,56 @@ pushRoutes.post('/test', async (c) => {
     return c.json({ error: (err as Error).message }, 500)
   }
 })
+
+/** Broadcast a message to all subscribers (Admin only). */
+pushRoutes.post('/broadcast', async (c) => {
+  const adminKey = c.req.header('X-Admin-Key')
+  if (!adminKey || adminKey !== c.env.ADMIN_KEY) {
+    return c.json({ error: 'Unauthorized' }, 401)
+  }
+
+  let payload: { title?: string, body?: string, url?: string }
+  try {
+    payload = await c.req.json()
+  } catch {
+    return c.json({ error: 'invalid JSON' }, 400)
+  }
+
+  const notification = JSON.stringify({
+    title: payload.title || 'KoreanLife',
+    body: payload.body || '새로운 알림이 도착했습니다! · New notification!',
+    url: payload.url || (c.env.ALLOWED_ORIGIN || '/'),
+  })
+
+  try {
+    const list = await c.env.SUBSCRIPTIONS.list()
+    let successCount = 0
+    let failCount = 0
+
+    for (const key of list.keys) {
+      const subJson = await c.env.SUBSCRIPTIONS.get(key.name)
+      if (!subJson) continue
+
+      const sub = JSON.parse(subJson)
+      try {
+        const status = await sendPush(c.env, sub, notification)
+        if (status >= 400) {
+          console.error(`Push failed for ${key.name} with status ${status}`)
+          failCount++
+          if (status === 404 || status === 410) {
+            await c.env.SUBSCRIPTIONS.delete(key.name)
+          }
+        } else {
+          successCount++
+        }
+      } catch (e) {
+        console.error(`Push exception for ${key.name}:`, e)
+        failCount++
+      }
+    }
+
+    return c.json({ ok: true, success: successCount, failed: failCount })
+  } catch (err) {
+    return c.json({ error: (err as Error).message }, 500)
+  }
+})

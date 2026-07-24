@@ -9,7 +9,8 @@
   },
   "vars": {
     "VAPID_SUBJECT": "mailto:nijin39@gmail.com",
-    "ALLOWED_ORIGIN": "https://koreanlife.pages.dev"
+    "ALLOWED_ORIGIN": "https://koreanlife.pages.dev",
+    "ADMIN_KEY": "dev-admin-key-1234"
   },
   "kv_namespaces": [
     { "binding": "SUBSCRIPTIONS", "id": "075a0b583c9543be9f5caca2deae6d37" }
